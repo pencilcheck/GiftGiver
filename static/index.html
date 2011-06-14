@@ -41,12 +41,12 @@ $(document).ready(function() {
         value['occasion'] = $('#occasion option:selected').val();
         value['relationship'] = $('#relationship option:selected').val();
 
-        $('input[type=\'checkbox\'][class*=\'feature\']:checked').each(function(index) {
+        $('input[type=\'checkbox\'][class~=\'feature\']:checked').each(function(index) {
             features.push($(this).val());
         });
         value['features'] = features.join(" ");
 
-        $('input[type=\'checkbox\'][class*=\'type\']:checked').each(function(index) {
+        $('input[type=\'checkbox\'][class~=\'type\']:checked').each(function(index) {
             types.push($(this).val());
         });
         value['types'] = types.join(" ");
@@ -94,15 +94,17 @@ $(document).ready(function() {
                 <h3>Occasion</h3>
                 <select class="target" id="occasion">
                     <option value="birthday">Birthday</option>
-                    <option value="christmas">Chrismas</option>
+                    <option value="christmas day">Chrismas</option>
+                    <option value="valentine's day">Valentine's Day</option>
+                    <!--
                     <option value="wedding">Wedding</option>
                     <option value="mother day">Mother's Day</option>
                     <option value="father day">Father's Day</option>
-                    <option value="valentine day">Valentine's Day</option>
                     <option value="thinksgiving day">Thanksgiving Day</option>
                     <option value="anniversary and love">Anniversary (about love)</option>
                     <option value="anniversary friendship">Anniversary (about friendship)</option>
                     <option value="none">None of above</option>
+                    -->
                 </select>
             </div>
             <div class="section shadow">

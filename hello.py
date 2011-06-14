@@ -12,6 +12,7 @@ import simplejson, json
 
 import csv
 
+pp = pprint.PrettyPrinter(indent=4)
 
 def sortGift(arguments):
     occasion = arguments['occasion'][0]
@@ -31,8 +32,8 @@ def sortGift(arguments):
     receiver_religion = arguments['receiver_profile_religion'][0]
 
     types = arguments['types'][0].split()
-    features = arguments['features'][0].split()
-    occasions = []
+    input_features = arguments['features'][0].split()
+    occasions = {}
 
 
 
@@ -52,29 +53,59 @@ def sortGift(arguments):
 
 
     # gifts represent the gift list
-    gifts = []
+    gifts = {}
+    features = []
     table = csv.reader(open('gifts_60.csv', 'rb'))
     for i, row in enumerate(table):
         if i == 0:
             features = row[1:]
         if 0 < i < 4:
-            D2 = {}
-            for (k, v) in zip(features, row[1:]): D2[k] = v
-            occasions.append((row[0], D2))
+            occasions[row[0]] = dict(zip(features, row[1:]))
         if i > 4:
-            D2 = {}
-            for (k, v) in zip(features, row[1:]): D2[k] = v
-            gifts.append((row[0], D2))
+            gifts[row[0]] = dict(zip(features, row[1:]))
 
-    results = []
 
+    #part 1
+    diff = {}
+    for name, features in gifts.items():
+      diff[name] = 0
+      for feature in features:
+        diff[name] += pow( (float(occasions[occasion][feature]) - float(gifts[name][feature])),2)
+
+    #pp.pprint( sorted (diff.items(), key=lambda x: x[1]) )
+    #pp.pprint( sorted (diff.items(), key=diff.get) )
+    sorted_gifts = sorted (diff.items(), key=lambda x: x[1])
+    result_gifts = []
+    for item in sorted_gifts:
+        result_gifts.append((item[0], gifts[item[0]]))
+    
+    
+    #part 2
+    inferior_gifts = []
+    for gift in result_gifts:
+      for input_feature in input_features:
+        if float(gift[1][input_feature]) < 0.4:
+            inferior_gifts.append(gift)
+            break
+    for gift in inferior_gifts:
+        for index, old_gift in enumerate(result_gifts):
+            if old_gift[0] == gift[0]:
+                del result_gifts[index]
+
+    #print input_features    
+    print "result_gifts"
+    pp.pprint( result_gifts )
+    #print "inferior_gifts"
+    #pp.pprint( inferior_gifts )
 
     # part three by weiti
     
+    results = []
     # Occasion, Relationship => Category
     scenario = divisi2.category(occasion,relationship)
 
     # find similarity between a gift and a category
+    
     for gift in gifts:
         sim_score = sim.left_category(scenario).entry_named(gift[0])
         results.append ( (gift[0], sim_score) )
@@ -138,7 +169,7 @@ def sortGift(arguments):
     	"""
     
     result_list = sorted (results, cmp=lambda x,y: cmp(x[1], y[1]), reverse=True)[:20]
-    pp = pprint.PrettyPrinter(indent=4)
+    
     pp.pprint( result_list )
 
     return_list = [x[0] for x in result_list]
