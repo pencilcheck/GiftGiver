@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html 5>
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>AAI project: Santa Clause's Assistent</title>
+<link href="static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="static/css/960.css" rel="stylesheet" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" media="all" href="static/css/calendar-win2k-cold-1.css"  />
+<link href="static/css/smartspinner.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.dynDateTime.js"></script>
+<script type="text/javascript" src="static/lang/calendar-en.js"></script>
+
+<script type="text/javascript" src="static/js/smartspinner.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    function ajaxSetup() {
+        $('div#result_list').empty();
+        $('div#result_list').append('<p>Loading...</p>');
+
+        var value = {};
+        var options = [];
+        value['sender_profile_occupation'] = $('div.sender #sender_occupation option:selected').val();
+        value['sender_profile_gender'] = $('div.sender div.selected.tab').attr('alt');
+        value['sender_profile_age'] = $('div.sender #sender_age option:selected').val();
+        value['sender_profile_religion'] = $('div.sender #sender_religion option:selected').val();
+
+        value['receiver_profile_occupation'] = $('div.sender #sender_occupation option:selected').val();
+        value['receiver_profile_gender'] = $('div.receiver div.selected.tab').attr('alt');
+        value['receiver_profile_age'] = $('div.receiver #receiver_age option:selected').val();
+        value['receiver_profile_religion'] = $('div.receiver #receiver_religion option:selected').val();
+
+        value['occasion'] = $('#occasion option:selected').val();
+        value['relationship'] = $('#relationship option:selected').val();
+
+        $('input[type=\'checkbox\']:checked').each(function(index) {
+            options.push($(this).val());
+        });
+        value['interests'] = options.join(" ");
+        // setup all controls we want for analysis
+        $.ajax({
+            type: "POST",
+            url: "/",
+            data: value,
+            success: function(response) {
+                var results = $.parseJSON(response);
+                $('div#result_list').empty();
+                $.each(results, function(index, value) {
+                    $('div#result_list').append('<p>' + value + '</p>');
+                });
+            }
+        });
+    };
+
+    $('.tab').click(function() {
+        $(this).siblings().each(function(index) {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+        });
+        $(this).addClass('selected');
+    });
+
+    // 0 dollars means free stuff
+    $('#lower').spinit({ height: 15, width: 50, min: 0, initValue: 0, max: 100000000000000000 });
+    // 1000 dollars should be the highest cost for a gift
+    $('#higher').spinit({ height: 15, width: 50, min: 0, initValue: 1000, max: 100000000000000000 });
+    $('div.done').click(function() {
+        ajaxSetup();
+    });
+
+});
+</script>
+</head>
+<body>
+<div class="container_12">
+    <h1>Santa Clause's Assistent</h1>
+    <div class="grid_4">
+        <div class="sender shadow">
+            <h2>Sender</h2>
+            <div class="section shadow">
+                <h3>Profile</h3>
+                <select class="target" id="sender_occupation">
+                    <option value="student">Student</option>
+                    <option value="education">Education</option>
+                    <option value="business">Business</option>
+                    <option value="industry">Industry</option>
+                    <option value="service">Service</option>
+                    <option value="civil service">Civil Service</option>
+                    <option value="medical">Medical</option>
+                    <option value="housekeeper">House keeping</option>
+                    <option value="none">None of above</option>
+                </select>
+                <div class="segmentedControlBase tabs">
+                    <div class="button segmentedControl selected tab" alt="male">Male</div>
+                    <div class="button segmentedControl tab" alt="female">Female</div>
+                </div>
+                <select class="target" id="sender_age">
+                    <option value="baby">Baby</option>
+                    <option value="child">Child</option>
+                    <option value="teen">Teen</option>
+                    <option value="young adult">Young Adult</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                </select>
+                <select class="target" id="sender_religion">
+                    <option value="christian">Christian</option>
+                    <option value="buddist">Buddist</option>
+                    <option value="muslim">Muslim</option>
+                    <option value="atheist">Atheist</option>
+                    <option value="none">None of above</option>
+                </select>
+            </div>
+            <div class="section shadow">
+                <h3>Price Range</h3>
+		<input type="text" id="lower" class="smartspinner" /> ~ <input type="text" id="higher" class="smartspinner" />
+                <br>U.S.D.
+            </div>
+            <div class="section shadow">
+                <h3>Occasion</h3>
+                <select class="target" id="occasion">
+                    <option value="birthday">Birthday</option>
+                    <option value="christmas">Chrismas</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="mother day">Mother's Day</option>
+                    <option value="father day">Father's Day</option>
+                    <option value="valentine day">Valentine's Day</option>
+                    <option value="thinksgiving day">Thanksgiving Day</option>
+                    <option value="anniversary and love">Anniversary (about love)</option>
+                    <option value="anniversary friendship">Anniversary (about friendship)</option>
+                    <option value="none">None of above</option>
+                </select>
+            </div>
+            <div class="section shadow">
+                <h3>Relationship</h3>
+                Sender's relationship with the receiver(s).<br>
+                I'm his/her/their ...
+                <select class="target" id="relationship">
+                    <option value="couple">Couple</option>
+                    <option value="sibling">Sibling</option>
+                    <option value="parent">Parent</option>
+                    <option value="child">Child</option>
+                    <option value="friend">Friend</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="cousin">Cousin</option>
+                    <option value="elder">Elder relative</option>
+                    <option value="pet">Pets</option>
+                    <option value="none">None of above</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="grid_4">
+        <div class="receiver shadow">
+            <h2>Receiver(s)</h2>
+            <div class="section shadow">
+                <h3>Profile</h3>
+                <select class="target" id="receiver_occupation">
+                    <option value="student">Student</option>
+                    <option value="education">Education</option>
+                    <option value="business">Business</option>
+                    <option value="industry">Industry</option>
+                    <option value="service">Service</option>
+                    <option value="civil service">Civil Service</option>
+                    <option value="medical">Medical</option>
+                    <option value="housekeeper">House keeping</option>
+                    <option value="none">None of above</option>
+                </select>
+                <div class="segmentedControlBase tabs">
+                    <div class="button segmentedControl selected tab" alt="male">Male</div>
+                    <div class="button segmentedControl tab" alt="female">Female</div>
+                </div>
+                <select class="target" id="receiver_age">
+                    <option value="baby">Baby</option>
+                    <option value="child">Child</option>
+                    <option value="teen">Teen</option>
+                    <option value="young adult">Young Adult</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                </select>
+                <select class="target" id="receiver_religion">
+                    <option value="christian">Christian</option>
+                    <option value="buddist">Buddist</option>
+                    <option value="muslim">Muslim</option>
+                    <option value="atheist">Atheist</option>
+                    <option value="none">None of above</option>
+                </select>
+
+                <input class="target" type=checkbox value='music' name="Music" checked>Music
+                <input class="target" type=checkbox value='literature' name="Literature" checked>Literature
+                <input class="target" type=checkbox value='art' name="Art" checked>Art<br>
+                <input class="target" type=checkbox value='game' name="Game" checked>Game
+                <input class="target" type=checkbox value='electronics' name="Electronics" checked>Electronics
+                <input class="target" type=checkbox value='sport' name="Sport" checked>Sport<br>
+                <input class="target" type=checkbox value='food' name="Food" checked>Food
+                <input class="target" type=checkbox value='travel' name="Travel" checked>Travel
+		</div>
+            
+            <div class="section shadow">
+                <h3>Send Date</h3>
+                <script type="text/javascript">
+                    jQuery(document).ready(function() {
+                        jQuery("#dateFlat").dynDateTime({
+                            flat: ".next()"
+                        });
+                    });
+                </script>
+                <input type="text" name="dateDef" id="dateFlat" value="2001/09/11"/>
+                <!-- <div style="float: left;">&nbsp;</div> -->
+            </div>
+        </div>
+    </div>
+    <div class="grid_4">
+        <div class="output shadow">
+            <h2>Result</h2>
+            <div id='result_list'></div>
+            <div class="done">Update Results</div>
+        </div>
+    </div>
+    <img src="static/images/tree.png" style="position: absolute; top: 70%;
+    left: 70%; z-index:-1" />
+</div> <!-- end of container_12 -->
+</body>
+</html>
+
