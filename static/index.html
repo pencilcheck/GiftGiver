@@ -24,7 +24,8 @@ $(document).ready(function() {
         $('div#result_list').append('<p>Loading...</p>');
 
         var value = {};
-        var options = [];
+        var features = [];
+        var types = [];
         value['sender_profile_occupation'] = $('div.sender #sender_occupation option:selected').val();
         value['sender_profile_gender'] = $('div.sender div.selected.tab').attr('alt');
         value['sender_profile_age'] = $('div.sender #sender_age option:selected').val();
@@ -38,10 +39,15 @@ $(document).ready(function() {
         value['occasion'] = $('#occasion option:selected').val();
         value['relationship'] = $('#relationship option:selected').val();
 
-        $('input[type=\'checkbox\']:checked').each(function(index) {
-            options.push($(this).val());
+        $('input[type=\'checkbox\'][class*=\'feature\']:checked').each(function(index) {
+            features.push($(this).val());
         });
-        value['interests'] = options.join(" ");
+        value['features'] = features.join(" ");
+
+        $('input[type=\'checkbox\'][class*=\'type\']:checked').each(function(index) {
+            types.push($(this).val());
+        });
+        value['types'] = types.join(" ");
         // setup all controls we want for analysis
         $.ajax({
             type: "POST",
@@ -116,14 +122,14 @@ $(document).ready(function() {
             </div>
             <div class="section shadow">
                 <h3>How do you want the present to be like?</h3>
-                <input class="target" type=checkbox value='practicality' name="Practical" checked>Practical
-                <input class="target" type=checkbox value='extend_meaning' name="Extend Meaning" checked>Extend Meaning
-                <input class="target" type=checkbox value='beautiful' name="Beautiful" checked>Beautiful<br>
-                <input class="target" type=checkbox value='trend' name="Trendy" checked>Trendy
-                <input class="target" type=checkbox value='multi_user' name="Not Single User" checked>Not Single User
-                <input class="target" type=checkbox value='romantic' name="Romantic" checked>Romantic<br>
-                <input class="target" type=checkbox value='technology' name="Technology" checked>Geeky
-            j   <input class="target" type=checkbox value='interesting' name="Travel" checked>Travel
+                <input class="target feature" type=checkbox value='practical' name="Practical" checked>Practical
+                <input class="target feature" type=checkbox value='polysemy' name="Polysemy" checked>Meaningful
+                <input class="target feature" type=checkbox value='appearance' name="Appearance" checked>Beautiful
+                <input class="target feature" type=checkbox value='trendy' name="Trendy" checked>Trendy
+                <input class="target feature" type=checkbox value='impersonal' name="Impersonal" checked>Impersonal
+                <input class="target feature" type=checkbox value='romantic' name="Romantic" checked>Romantic
+                <input class="target feature" type=checkbox value='geeky' name="Geeky" checked>Geeky
+                <input class="target feature" type=checkbox value='fun' name="Fun" checked>Fun
             </div>
             <!--
             <div class="section shadow">
@@ -203,14 +209,14 @@ $(document).ready(function() {
                     <option value="none">None of above</option>
                 </select>
 
-                <input class="target" type=checkbox value='music' name="Music" checked>Music
-                <input class="target" type=checkbox value='literature' name="Literature" checked>Literature
-                <input class="target" type=checkbox value='art' name="Art" checked>Art<br>
-                <input class="target" type=checkbox value='game' name="Game" checked>Game
-                <input class="target" type=checkbox value='electronics' name="Electronics" checked>Electronics
-                <input class="target" type=checkbox value='sport' name="Sport" checked>Sport<br>
-                <input class="target" type=checkbox value='food' name="Food" checked>Food
-                <input class="target" type=checkbox value='travel' name="Travel" checked>Travel
+                <input class="target type" type=checkbox value='music' name="Music" checked>Music
+                <input class="target type" type=checkbox value='literature' name="Literature" checked>Literature
+                <input class="target type" type=checkbox value='art' name="Art" checked>Art
+                <input class="target type" type=checkbox value='game' name="Game" checked>Game
+                <input class="target type" type=checkbox value='electronics' name="Electronics" checked>Electronics
+                <input class="target type" type=checkbox value='sport' name="Sport" checked>Sport
+                <input class="target type" type=checkbox value='food' name="Food" checked>Food
+                <input class="target type" type=checkbox value='travel' name="Travel" checked>Travel
 		</div>
             
             <div class="section shadow">
@@ -235,8 +241,8 @@ $(document).ready(function() {
             <div class="done">Update Results</div>
         </div>
     </div>
-    <img src="static/images/tree.png" style="position: absolute; top: 70%;
-    left: 70%; z-index:-1" />
+    <img src="static/images/tree.png" style="position: absolute; top: 20%;
+    left: 90%; z-index:-1" />
 </div> <!-- end of container_12 -->
 </body>
 </html>

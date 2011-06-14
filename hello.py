@@ -28,8 +28,8 @@ def sortGift(arguments):
     receiver_age = arguments['receiver_profile_gender'][0]
     receiver_religion = arguments['receiver_profile_religion'][0]
 
-    interests = arguments['interests'][0].split()
-    features = []
+    types = arguments['types'][0].split()
+    features = arguments['features'][0].split()
 
 
     cnet = divisi2.network.conceptnet_matrix('en')
