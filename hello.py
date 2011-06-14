@@ -32,7 +32,7 @@ def sortGift(arguments):
 
     types = arguments['types'][0].split()
     features = arguments['features'][0].split()
-    occasions = []
+    occasions = {}
 
 
     cnet = divisi2.network.conceptnet_matrix('en')
@@ -55,12 +55,13 @@ def sortGift(arguments):
         if 0 < i < 4:
             D2 = {}
             for (k, v) in zip(features, row[1:]): D2[k] = v
-            occasions.append((row[0], D2))
+            occasions[row[0]] = D2
         if i > 4:
             D2 = {}
             for (k, v) in zip(features, row[1:]): D2[k] = v
             gifts.append((row[0], D2))
 
+    print occasions
     results = []
     '''
     for gift in gifts:
