@@ -10,40 +10,17 @@ import pprint
 
 import simplejson, json
 
+import csv
 
-def test():
-    cnet = divisi2.network.conceptnet_matrix('en')
-    U, S, V = cnet.normalize_all().svd(k=100)
-
-    '''
-    new_cnet, row_shift, coln_shift, total_shift = cnet.mean_center()
-    U, S, V = new_cnet.svd(k=100)
-    '''
-
-    '''
-    recommend = divisi2.reconstruct(U, S, V, shifts=(row_shift, coln_shift, total_shift))
-    print recommend.col_labels
-    print recommend.row_named('gift').top_items()
-    '''
-
-    similarity = divisi2.reconstruct_similarity(U, S, post_normalize=False)
-    print similarity.row_named('gift').top_items()
-
-    '''
-    assoc = divisi2.network.conceptnet_assoc('en')
-    U, S, _ = assoc.svd(k=100)
-    spread = divisi2.reconstruct_activation(U,S)
-    spread = examples.spreading_activation()
-    '''
 
 def sortGift(arguments):
-    # spreading parameter
+    occasion = arguments['occasion'][0]
+
     sender_occupation = arguments['sender_profile_occupation'][0]
     sender_gender = arguments['sender_profile_gender'][0]
     sender_age = arguments['sender_profile_age'][0]
     sender_religion = arguments['sender_profile_religion'][0]
 
-    occasion = arguments['occasion'][0]
     relationship = arguments['relationship'][0]
 
     receiver_occupation = arguments['receiver_profile_occupation'][0]
@@ -52,29 +29,31 @@ def sortGift(arguments):
     receiver_religion = arguments['receiver_profile_religion'][0]
 
     interests = arguments['interests'][0].split()
+    features = []
 
 
     cnet = divisi2.network.conceptnet_matrix('en')
+    assoc = divisi2.network.conceptnet_assoc('en')
+
     #concept_axes, axis_weights, feature_axes = cnet.svd(k=100)
     #sim = divisi2.reconstruct_similarity(concept_axes, axis_weights, post_normalize=True)
 
-    # reconstruct association operation from U and Signa
-    # load association matrix
-    assoc = divisi2.network.conceptnet_assoc('en')
-    U, S, _ = assoc.svd(k=100)
-    # load spreading activation matrix
-    spread = divisi2.reconstruct_activation(U,S)
+    #U, S, _ = assoc.svd(k=100)
+    #spread = divisi2.reconstruct_activation(U,S)
     #spread = examples.spreading_activation()
 
 
     # gifts represent the gift list
-    #gifts = set([x.strip() for x in open('gift_list.txt').readlines()])
-    #gifts = set([' '.join(x.strip().split('(')[0].split('\xef\xbc\x88')[0].split()) if x.find(':') < 0 and len(x.strip()) > 0 else '' for x in open('list.txt').readlines()])
-    #gifts = set([' '.join(x.strip().split('(')[0].split('\xef\xbc\x88')[0].split()) if x.find(':') < 0 and len(x.strip()) > 0 else '' for x in open('gift_list_0613.txt').readlines()])
-    gifts = [x[0] for x in spread.row_named('gift').top_items(1000)]
+    gifts = []
+    table = csv.reader(open('gifts_60.csv', 'rb'))
+    for i, row in enumerate(table):
+        if i == 0:
+            features.append('')
+        if i > 4:
+            gifts.append((row[0], zip(features, row[1:])))
 
     results = []
-
+    '''
     for gift in gifts:
         if gift == '': continue
 
@@ -133,7 +112,7 @@ def sortGift(arguments):
         for interest in interests: total_score *= spread.entry_named(gift, interest) * interests_weight if spread.entry_named(gift, interest) * interests_weight > 0 else 0.0
 
         results.append ( (gift, total_score) )
-
+    '''
     result_list = sorted (results, cmp=lambda x,y: cmp(x[1], y[1]), reverse=True)[:20]
     pp = pprint.PrettyPrinter(indent=4)
     pp.pprint( result_list )
@@ -163,11 +142,8 @@ application = tornado.web.Application([
 ], **settings)
 
 if __name__ == "__main__":
-    '''
     application.listen(8888)
     tornado.ioloop.IOLoop.instance().start()
-    '''
-    test()
 
 
 
