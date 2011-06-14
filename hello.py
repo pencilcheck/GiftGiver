@@ -32,7 +32,7 @@ def sortGift(arguments):
     receiver_religion = arguments['receiver_profile_religion'][0]
 
     types = arguments['types'][0].split()
-    features = arguments['features'][0].split()
+    input_features = arguments['features'][0].split()
     occasions = {}
 
 
@@ -48,7 +48,8 @@ def sortGift(arguments):
 
 
     # gifts represent the gift list
-    gifts = []
+    gifts = {}
+    features = []
     table = csv.reader(open('gifts_60.csv', 'rb'))
     for i, row in enumerate(table):
         if i == 0:
@@ -56,7 +57,7 @@ def sortGift(arguments):
         if 0 < i < 4:
             occasions[row[0]] = dict(zip(features, row[1:]))
         if i > 4:
-            gifts.append((row[0], dict(zip(features, row[1:]))))
+            gifts[row[0]] = dict(zip(features, row[1:]))
 
     results = []
 
@@ -64,14 +65,37 @@ def sortGift(arguments):
 
     #part 1
     diff = {}
-    for gift in gifts:
-      diff[gift[0]] = 0
+    for name, features in gifts.items():
+      diff[name] = 0
       for feature in features:
-        diff[gift[0]] += pow( (float(occasions[occasion][feature]) - float(gift[1][feature])),2)
+        diff[name] += pow( (float(occasions[occasion][feature]) - float(gifts[name][feature])),2)
+
+    #pp.pprint( sorted (diff.items(), key=lambda x: x[1]) )
+    #pp.pprint( sorted (diff.items(), key=diff.get) )
+    sorted_gifts = sorted (diff.items(), key=lambda x: x[1])
+    result_gifts = []
+    for item in sorted_gifts:
+        result_gifts.append((item[0], gifts[item[0]]))
     
-    pp.pprint( diff )
-    pp.pprint( sorted (diff, key=diff.get) )
-        
+    
+    #part 2
+    inferior_gifts = []
+    for gift in result_gifts:
+      for input_feature in input_features:
+        if float(gift[1][input_feature]) < 0.4:
+            inferior_gifts.append(gift)
+            break
+    for gift in inferior_gifts:
+        for index, old_gift in enumerate(result_gifts):
+            if old_gift[0] == gift[0]:
+                del result_gifts[index]
+    
+    #print input_features    
+    print "result_gifts"
+    pp.pprint( result_gifts )
+    #print "inferior_gifts"
+    #pp.pprint( inferior_gifts )
+    
     results = []
 
     '''
