@@ -80,9 +80,52 @@ $(document).ready(function() {
 <body>
 <div class="container_12">
     <h1>Santa Clause's Assistent</h1>
-    <div class="grid_4">
+    <div class="grid_12">
         <div class="sender shadow">
-            <h2>Sender</h2>
+            <div class="section shadow">
+                <h3>Occasion</h3>
+                <select class="target" id="occasion">
+                    <option value="birthday">Birthday</option>
+                    <option value="christmas">Chrismas</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="mother day">Mother's Day</option>
+                    <option value="father day">Father's Day</option>
+                    <option value="valentine day">Valentine's Day</option>
+                    <option value="thinksgiving day">Thanksgiving Day</option>
+                    <option value="anniversary and love">Anniversary (about love)</option>
+                    <option value="anniversary friendship">Anniversary (about friendship)</option>
+                    <option value="none">None of above</option>
+                </select>
+            </div>
+            <div class="section shadow">
+                <h3>Relationship</h3>
+                Sender's relationship with the receiver(s).<br>
+                I'm his/her/their ...
+                <select class="target" id="relationship">
+                    <option value="couple">Couple</option>
+                    <option value="sibling">Sibling</option>
+                    <option value="parent">Parent</option>
+                    <option value="child">Child</option>
+                    <option value="friend">Friend</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="cousin">Cousin</option>
+                    <option value="elder">Elder relative</option>
+                    <option value="pet">Pets</option>
+                    <option value="none">None of above</option>
+                </select>
+            </div>
+            <div class="section shadow">
+                <h3>How do you want the present to be like?</h3>
+                <input class="target" type=checkbox value='practicality' name="Practical" checked>Practical
+                <input class="target" type=checkbox value='extend_meaning' name="Extend Meaning" checked>Extend Meaning
+                <input class="target" type=checkbox value='beautiful' name="Beautiful" checked>Beautiful<br>
+                <input class="target" type=checkbox value='trend' name="Trendy" checked>Trendy
+                <input class="target" type=checkbox value='multi_user' name="Not Single User" checked>Not Single User
+                <input class="target" type=checkbox value='romantic' name="Romantic" checked>Romantic<br>
+                <input class="target" type=checkbox value='technology' name="Technology" checked>Geeky
+            j   <input class="target" type=checkbox value='interesting' name="Travel" checked>Travel
+            </div>
+            <!--
             <div class="section shadow">
                 <h3>Profile</h3>
                 <select class="target" id="sender_occupation">
@@ -121,45 +164,14 @@ $(document).ready(function() {
 		<input type="text" id="lower" class="smartspinner" /> ~ <input type="text" id="higher" class="smartspinner" />
                 <br>U.S.D.
             </div>
-            <div class="section shadow">
-                <h3>Occasion</h3>
-                <select class="target" id="occasion">
-                    <option value="birthday">Birthday</option>
-                    <option value="christmas">Chrismas</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="mother day">Mother's Day</option>
-                    <option value="father day">Father's Day</option>
-                    <option value="valentine day">Valentine's Day</option>
-                    <option value="thinksgiving day">Thanksgiving Day</option>
-                    <option value="anniversary and love">Anniversary (about love)</option>
-                    <option value="anniversary friendship">Anniversary (about friendship)</option>
-                    <option value="none">None of above</option>
-                </select>
-            </div>
-            <div class="section shadow">
-                <h3>Relationship</h3>
-                Sender's relationship with the receiver(s).<br>
-                I'm his/her/their ...
-                <select class="target" id="relationship">
-                    <option value="couple">Couple</option>
-                    <option value="sibling">Sibling</option>
-                    <option value="parent">Parent</option>
-                    <option value="child">Child</option>
-                    <option value="friend">Friend</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="cousin">Cousin</option>
-                    <option value="elder">Elder relative</option>
-                    <option value="pet">Pets</option>
-                    <option value="none">None of above</option>
-                </select>
-            </div>
+            -->
         </div>
     </div>
-    <div class="grid_4">
+    <div class="clear"></div>
+    <div class="grid_12">
         <div class="receiver shadow">
-            <h2>Receiver(s)</h2>
             <div class="section shadow">
-                <h3>Profile</h3>
+                <h3>Receiver Profile</h3>
                 <select class="target" id="receiver_occupation">
                     <option value="student">Student</option>
                     <option value="education">Education</option>
@@ -215,7 +227,8 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
-    <div class="grid_4">
+    <div class="clear"></div>
+    <div class="grid_12">
         <div class="output shadow">
             <h2>Result</h2>
             <div id='result_list'></div>
