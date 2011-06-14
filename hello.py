@@ -13,6 +13,16 @@ import simplejson, json
 import csv
 
 
+def diversity(festival, gift_list):
+    
+    
+
+
+    return diversity_score
+
+
+
+
 def sortGift(arguments):
     occasion = arguments['occasion'][0]
 
@@ -53,6 +63,11 @@ def sortGift(arguments):
             gifts.append((row[0], zip(features, row[1:])))
 
     results = []
+
+    
+
+
+
     '''
     for gift in gifts:
         if gift == '': continue
