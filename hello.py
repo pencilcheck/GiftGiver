@@ -12,6 +12,7 @@ import simplejson, json
 
 import csv
 
+pp = pprint.PrettyPrinter(indent=4)
 
 def sortGift(arguments):
     occasion = arguments['occasion'][0]
@@ -61,15 +62,20 @@ def sortGift(arguments):
             for (k, v) in zip(features, row[1:]): D2[k] = v
             gifts.append((row[0], D2))
 
-    print occasions
+    #print occasions
     results = []
 
     
 
     #part 1
-    diff = [] 
-    for i in table:
-      table[Ocation]
+    diff = {}
+    for gift in gifts:
+      diff[gift[0]] = 0
+      for feature in features:
+        diff[gift[0]] += pow( (float(occasions[occasion][feature]) - float(gift[1][feature])),2)
+    
+    pp.pprint( diff )
+    pp.pprint( sorted (diff, key=diff.get) )
         
     '''
     for gift in gifts:
@@ -132,7 +138,7 @@ def sortGift(arguments):
         results.append ( (gift, total_score) )
     '''
     result_list = sorted (results, cmp=lambda x,y: cmp(x[1], y[1]), reverse=True)[:20]
-    pp = pprint.PrettyPrinter(indent=4)
+    
     pp.pprint( result_list )
 
     return_list = [x[0] for x in result_list]
