@@ -50,6 +50,7 @@ $(document).ready(function() {
             types.push($(this).val());
         });
         value['types'] = types.join(" ");
+
         // setup all controls we want for analysis
         $.ajax({
             type: "POST",

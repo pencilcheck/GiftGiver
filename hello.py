@@ -31,8 +31,15 @@ def sortGift(arguments):
     receiver_age = arguments['receiver_profile_gender'][0]
     receiver_religion = arguments['receiver_profile_religion'][0]
 
-    types = arguments['types'][0].split()
-    input_features = arguments['features'][0].split()
+    if 'types' in arguments:
+        types = arguments['types'][0].split()
+    else:
+        types = []
+
+    if 'features' in arguments:
+        input_features = arguments['features'][0].split()
+    else:
+        input_features = []
     occasions = {}
 
 
@@ -106,7 +113,7 @@ def sortGift(arguments):
 
     # find similarity between a gift and a category
     
-    for gift in gifts:
+    for gift in gifts.items():
         sim_score = sim.left_category(scenario).entry_named(gift[0])
         results.append ( (gift[0], sim_score) )
 
