@@ -53,6 +53,14 @@ def sortGift(arguments):
             gifts.append((row[0], zip(features, row[1:])))
 
     results = []
+
+    
+
+    #part 1
+    diff = [] 
+    for i in table:
+      table[Ocation]
+        
     '''
     for gift in gifts:
         if gift == '': continue
