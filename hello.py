@@ -56,7 +56,7 @@ def sortGift(arguments):
 
     #U, S, _ = assoc.svd(k=100)
     #spread = divisi2.reconstruct_activation(U,S)
-    #spread = examples.spreading_activation()
+    spread = examples.spreading_activation()
 
 
     # gifts represent the gift list
@@ -100,87 +100,176 @@ def sortGift(arguments):
                 del result_gifts[index]
 
     #print input_features    
-    print "result_gifts"
-    pp.pprint( result_gifts )
+    #print "result_gifts"
+    #pp.pprint( result_gifts )
     #print "inferior_gifts"
     #pp.pprint( inferior_gifts )
+    #print cnet.row_named('gift').to_dense().top_items()
 
-    # part three by weiti
-    
+
+    # part 3    
+
     results = []
+
     # Occasion, Relationship => Category
     scenario = divisi2.category(occasion,relationship)
 
-    # find similarity between a gift and a category
-    
-    for gift in gifts.items():
-        sim_score = sim.left_category(scenario).entry_named(gift[0])
-        results.append ( (gift[0], sim_score) )
-
-        """
-        normalization_coefficient = 5.0
+    # find similarity between a gift and a category    
+    candidates = spread.left_category(scenario).top_items(20)
+    for gift in result_gifts:
+        #sim_score = sim.left_category(scenario).entry_named(gift[0])
+        score = 0.0
         
-        sender_occupation_weight = 2.583 / normalization_coefficient
-        sender_age_weight = 2.583 / normalization_coefficient
-        sender_gender_weight = 2.75 / normalization_coefficient
-        sender_religion_weight = 1.583 / normalization_coefficient
+        for candidate in candidates:
+            bait = float(candidate[1])
+            # First level        
+            if candidate[0] == gift:
+                score += bait
+            '''
+            # Second level
+            bait2 = bait * 0.25
+            for relationTuple in cnet.row_named(candidate[0]).to_dense().top_items(5):    
+                relation = relationTuple[0]            
+                if relation[2] == gift:
+                    # IsA
+                    if relation[1] == 'IsA':
+                        score += bait2
+                    # PartOf
+                    if relation[1] == 'PartOf':
+                        score += bait2
+                    # UsedFor
+                    if relation[1] == 'UsedFor':
+                        score += bait2
+                    # AtLocation
+                    if relation[1] == 'AtLocation':
+                        score += bait2
+                    # Desires
+                    if relation[1] == 'Desires':
+                        score += bait2
+                    # CausesDesire
+                    if relation[1] == 'CausesDesire':
+                        score += bait2
+                    # SymbolOf
+                    if relation[1] == 'SymbolOf':
+                        score += bait2
+                    # LocatedNear
+                    if relation[1] == 'LocatedNear':
+                        score += bait2
+            '''
 
-        occasion_weight = 4.583 / normalization_coefficient
-        relationship_weight = 4.917 / normalization_coefficient
+        results.append ( (gift[0], score) )
 
-        receiver_occupation_weight = 3.75 / normalization_coefficient
-        receiver_age_weight = 4.25 / normalization_coefficient
-        receiver_gender_weight = 4.583 / normalization_coefficient
-        receiver_religion_weight = 2.75 / normalization_coefficient
+    for gift in inferior_gifts:
+        #sim_score = sim.left_category(scenario).entry_named(gift[0])
+        score = 0.0
+        
+        for candidate in candidates:
+            bait = float(candidate[1])
+            # First level        
+            if candidate[0] == gift:
+                score += bait
+            '''
+            # Second level
+            bait2 = bait * 0.25
+            for relationTuple in cnet.row_named(candidate[0]).to_dense().top_items(5):    
+                relation = relationTuple[0]            
+                if relation[2] == gift:
+                    # IsA
+                    if relation[1] == 'IsA':
+                        score += bait2
+                    # PartOf
+                    if relation[1] == 'PartOf':
+                        score += bait2
+                    # UsedFor
+                    if relation[1] == 'UsedFor':
+                        score += bait2
+                    # AtLocation
+                    if relation[1] == 'AtLocation':
+                        score += bait2
+                    # Desires
+                    if relation[1] == 'Desires':
+                        score += bait2
+                    # CausesDesire
+                    if relation[1] == 'CausesDesire':
+                        score += bait2
+                    # SymbolOf
+                    if relation[1] == 'SymbolOf':
+                        score += bait2
+                    # LocatedNear
+                    if relation[1] == 'LocatedNear':
+                        score += bait2
+            '''
 
-        interests_weight = 4.33 / normalization_coefficient
+        results.append ( (gift[0], score) )
 
 
-        sender_occupation_score = sender_occupation_weight * spread.entry_named(gift[0], sender_occupation)
-        #if sender_occupation_score < 0: sender_occupation_score = 0
-
-        sender_age_score = sender_age_weight * spread.entry_named(gift, sender_age)
-        #if sender_age_score < 0: sender_age_score = 0
-
-        sender_gender_score = sender_gender_weight * spread.entry_named(gift, sender_gender)
-        #if sender_gender_score < 0: sender_gender_score = 0
-
-        sender_religion_score = sender_religion_weight * spread.entry_named(gift, sender_religion)
-        #if sender_religion_score < 0: sender_religion_score = 0
-
-
-        occasion_score = occasion_weight * spread.entry_named(gift, occasion)
-        #if occasion_score < 0: occasion_score = 0
-
-        relationship_score = relationship_weight * spread.entry_named(gift, relationship)
-        #if relationship_score < 0: relationship_score = 0
-
-
-        receiver_occupation_score = receiver_occupation_weight * spread.entry_named(gift, receiver_occupation)
-        #if receiver_occupation_score < 0: receiver_occupation_score = 0
-
-        receiver_age_score = receiver_age_weight * spread.entry_named(gift, receiver_age)
-        #if receiver_age_score < 0: receiver_age_score = 0
-
-        receiver_gender_score = receiver_gender_weight * spread.entry_named(gift, receiver_gender)
-        #if receiver_gender_score < 0: receiver_gender_score = 0
-
-        receiver_religion_score = receiver_religion_weight * spread.entry_named(gift, receiver_religion)
-        #if receiver_religion_score < 0: receiver_religion_score = 0
-
-
-        total_score = sender_occupation_score * sender_age_score * sender_gender_score * sender_religion_score * occasion_score * relationship_score * receiver_occupation_score * receiver_age_score * receiver_gender_score * receiver_religion_score
-        for interest in interests: total_score *= spread.entry_named(gift, interest) * interests_weight if spread.entry_named(gift, interest) * interests_weight > 0 else 0.0
-
-        results.append ( (gift, total_score) )
-    	"""
-    
     result_list = sorted (results, cmp=lambda x,y: cmp(x[1], y[1]), reverse=True)[:20]
     
     pp.pprint( result_list )
 
     return_list = [x[0] for x in result_list]
     return return_list
+
+
+    """
+    normalization_coefficient = 5.0
+
+    sender_occupation_weight = 2.583 / normalization_coefficient
+    sender_age_weight = 2.583 / normalization_coefficient
+    sender_gender_weight = 2.75 / normalization_coefficient
+    sender_religion_weight = 1.583 / normalization_coefficient
+
+    occasion_weight = 4.583 / normalization_coefficient
+    relationship_weight = 4.917 / normalization_coefficient
+
+    receiver_occupation_weight = 3.75 / normalization_coefficient
+    receiver_age_weight = 4.25 / normalization_coefficient
+    receiver_gender_weight = 4.583 / normalization_coefficient
+    receiver_religion_weight = 2.75 / normalization_coefficient
+
+    interests_weight = 4.33 / normalization_coefficient
+
+
+    sender_occupation_score = sender_occupation_weight * spread.entry_named(gift[0], sender_occupation)
+    #if sender_occupation_score < 0: sender_occupation_score = 0
+
+    sender_age_score = sender_age_weight * spread.entry_named(gift, sender_age)
+    #if sender_age_score < 0: sender_age_score = 0
+
+    sender_gender_score = sender_gender_weight * spread.entry_named(gift, sender_gender)
+    #if sender_gender_score < 0: sender_gender_score = 0
+
+    sender_religion_score = sender_religion_weight * spread.entry_named(gift, sender_religion)
+    #if sender_religion_score < 0: sender_religion_score = 0
+
+
+    occasion_score = occasion_weight * spread.entry_named(gift, occasion)
+    #if occasion_score < 0: occasion_score = 0
+
+    relationship_score = relationship_weight * spread.entry_named(gift, relationship)
+    #if relationship_score < 0: relationship_score = 0
+
+
+    receiver_occupation_score = receiver_occupation_weight * spread.entry_named(gift, receiver_occupation)
+    #if receiver_occupation_score < 0: receiver_occupation_score = 0
+
+    receiver_age_score = receiver_age_weight * spread.entry_named(gift, receiver_age)
+    #if receiver_age_score < 0: receiver_age_score = 0
+
+    receiver_gender_score = receiver_gender_weight * spread.entry_named(gift, receiver_gender)
+    #if receiver_gender_score < 0: receiver_gender_score = 0
+
+    receiver_religion_score = receiver_religion_weight * spread.entry_named(gift, receiver_religion)
+    #if receiver_religion_score < 0: receiver_religion_score = 0
+
+
+    total_score = sender_occupation_score * sender_age_score * sender_gender_score * sender_religion_score * occasion_score * relationship_score * receiver_occupation_score * receiver_age_score * receiver_gender_score * receiver_religion_score
+    for interest in interests: total_score *= spread.entry_named(gift, interest) * interests_weight if spread.entry_named(gift, interest) * interests_weight > 0 else 0.0
+
+    results.append ( (gift, total_score) )
+    """
+    
+
     
 
 class MainHandler(tornado.web.RequestHandler):
