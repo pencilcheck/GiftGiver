@@ -26,10 +26,12 @@ def diversity(festival, gift_list):
 def sortGift(arguments):
     occasion = arguments['occasion'][0]
 
+    '''
     sender_occupation = arguments['sender_profile_occupation'][0]
     sender_gender = arguments['sender_profile_gender'][0]
     sender_age = arguments['sender_profile_age'][0]
     sender_religion = arguments['sender_profile_religion'][0]
+    '''
 
     relationship = arguments['relationship'][0]
 
@@ -40,6 +42,7 @@ def sortGift(arguments):
 
     types = arguments['types'][0].split()
     features = arguments['features'][0].split()
+    occasions = []
 
 
     cnet = divisi2.network.conceptnet_matrix('en')
@@ -58,9 +61,15 @@ def sortGift(arguments):
     table = csv.reader(open('gifts_60.csv', 'rb'))
     for i, row in enumerate(table):
         if i == 0:
-            features.append('')
+            features = row[1:]
+        if 0 < i < 4:
+            D2 = {}
+            for (k, v) in zip(features, row[1:]): D2[k] = v
+            occasions.append((row[0], D2))
         if i > 4:
-            gifts.append((row[0], zip(features, row[1:])))
+            D2 = {}
+            for (k, v) in zip(features, row[1:]): D2[k] = v
+            gifts.append((row[0], D2))
 
     results = []
 
