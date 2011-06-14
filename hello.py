@@ -57,8 +57,8 @@ def sortGift(arguments):
         if i > 4:
             gifts.append((row[0], dict(zip(features, row[1:]))))
 
-    print occasions
     results = []
+
     '''
     for gift in gifts:
         if gift == '': continue
