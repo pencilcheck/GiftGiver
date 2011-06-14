@@ -54,15 +54,10 @@ def sortGift(arguments):
         if i == 0:
             features = row[1:]
         if 0 < i < 4:
-            D2 = {}
-            for (k, v) in zip(features, row[1:]): D2[k] = v
-            occasions[row[0]] = D2
+            occasions[row[0]] = dict(zip(features, row[1:]))
         if i > 4:
-            D2 = {}
-            for (k, v) in zip(features, row[1:]): D2[k] = v
-            gifts.append((row[0], D2))
+            gifts.append((row[0], dict(zip(features, row[1:]))))
 
-    #print occasions
     results = []
 
     
@@ -77,6 +72,8 @@ def sortGift(arguments):
     pp.pprint( diff )
     pp.pprint( sorted (diff, key=diff.get) )
         
+    results = []
+
     '''
     for gift in gifts:
         if gift == '': continue
