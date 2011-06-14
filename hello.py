@@ -13,16 +13,6 @@ import simplejson, json
 import csv
 
 
-def diversity(festival, gift_list):
-    
-    
-
-
-    return diversity_score
-
-
-
-
 def sortGift(arguments):
     occasion = arguments['occasion'][0]
 
@@ -45,11 +35,16 @@ def sortGift(arguments):
     occasions = []
 
 
+
+    #reload conceptnet, change the cutoff default
+    #cnet = divisi2.load('data:graphs/conceptnet_en.graph.gz')
+    #A = divisi2.network.sparse_matrix(cnet, 'nodes', 'features', cutoff=0)
+
     cnet = divisi2.network.conceptnet_matrix('en')
     assoc = divisi2.network.conceptnet_assoc('en')
 
-    #concept_axes, axis_weights, feature_axes = cnet.svd(k=100)
-    #sim = divisi2.reconstruct_similarity(concept_axes, axis_weights, post_normalize=True)
+    concept_axes, axis_weights, feature_axes = cnet.svd(k=100)
+    sim = divisi2.reconstruct_similarity(concept_axes, axis_weights, post_normalize=True)
 
     #U, S, _ = assoc.svd(k=100)
     #spread = divisi2.reconstruct_activation(U,S)
@@ -73,14 +68,18 @@ def sortGift(arguments):
 
     results = []
 
+
+    # part three by weiti
     
+    # Occasion, Relationship => Category
+    scenario = divisi2.category(occasion,relationship)
 
-
-
-    '''
+    # find similarity between a gift and a category
     for gift in gifts:
-        if gift == '': continue
+        sim_score = sim.left_category(scenario).entry_named(gift[0])
+        results.append ( (gift[0], sim_score) )
 
+        """
         normalization_coefficient = 5.0
         
         sender_occupation_weight = 2.583 / normalization_coefficient
@@ -99,50 +98,52 @@ def sortGift(arguments):
         interests_weight = 4.33 / normalization_coefficient
 
 
-        sender_occupation_score = sender_occupation_weight * spread.entry_named(gift, sender_occupation)
-        if sender_occupation_score < 0: sender_occupation_score = 0
+        sender_occupation_score = sender_occupation_weight * spread.entry_named(gift[0], sender_occupation)
+        #if sender_occupation_score < 0: sender_occupation_score = 0
 
         sender_age_score = sender_age_weight * spread.entry_named(gift, sender_age)
-        if sender_age_score < 0: sender_age_score = 0
+        #if sender_age_score < 0: sender_age_score = 0
 
         sender_gender_score = sender_gender_weight * spread.entry_named(gift, sender_gender)
-        if sender_gender_score < 0: sender_gender_score = 0
+        #if sender_gender_score < 0: sender_gender_score = 0
 
         sender_religion_score = sender_religion_weight * spread.entry_named(gift, sender_religion)
-        if sender_religion_score < 0: sender_religion_score = 0
+        #if sender_religion_score < 0: sender_religion_score = 0
 
 
         occasion_score = occasion_weight * spread.entry_named(gift, occasion)
-        if occasion_score < 0: occasion_score = 0
+        #if occasion_score < 0: occasion_score = 0
 
         relationship_score = relationship_weight * spread.entry_named(gift, relationship)
-        if relationship_score < 0: relationship_score = 0
+        #if relationship_score < 0: relationship_score = 0
 
 
         receiver_occupation_score = receiver_occupation_weight * spread.entry_named(gift, receiver_occupation)
-        if receiver_occupation_score < 0: receiver_occupation_score = 0
+        #if receiver_occupation_score < 0: receiver_occupation_score = 0
 
         receiver_age_score = receiver_age_weight * spread.entry_named(gift, receiver_age)
-        if receiver_age_score < 0: receiver_age_score = 0
+        #if receiver_age_score < 0: receiver_age_score = 0
 
         receiver_gender_score = receiver_gender_weight * spread.entry_named(gift, receiver_gender)
-        if receiver_gender_score < 0: receiver_gender_score = 0
+        #if receiver_gender_score < 0: receiver_gender_score = 0
 
         receiver_religion_score = receiver_religion_weight * spread.entry_named(gift, receiver_religion)
-        if receiver_religion_score < 0: receiver_religion_score = 0
+        #if receiver_religion_score < 0: receiver_religion_score = 0
 
 
         total_score = sender_occupation_score * sender_age_score * sender_gender_score * sender_religion_score * occasion_score * relationship_score * receiver_occupation_score * receiver_age_score * receiver_gender_score * receiver_religion_score
         for interest in interests: total_score *= spread.entry_named(gift, interest) * interests_weight if spread.entry_named(gift, interest) * interests_weight > 0 else 0.0
 
         results.append ( (gift, total_score) )
-    '''
+    	"""
+    
     result_list = sorted (results, cmp=lambda x,y: cmp(x[1], y[1]), reverse=True)[:20]
     pp = pprint.PrettyPrinter(indent=4)
     pp.pprint( result_list )
 
     return_list = [x[0] for x in result_list]
     return return_list
+    
 
 class MainHandler(tornado.web.RequestHandler):
 
