@@ -26,12 +26,14 @@ $(document).ready(function() {
         var value = {};
         var features = [];
         var types = [];
+        /*
         value['sender_profile_occupation'] = $('div.sender #sender_occupation option:selected').val();
         value['sender_profile_gender'] = $('div.sender div.selected.tab').attr('alt');
         value['sender_profile_age'] = $('div.sender #sender_age option:selected').val();
         value['sender_profile_religion'] = $('div.sender #sender_religion option:selected').val();
+        */
 
-        value['receiver_profile_occupation'] = $('div.sender #sender_occupation option:selected').val();
+        value['receiver_profile_occupation'] = $('div.receiver #receiver_occupation option:selected').val();
         value['receiver_profile_gender'] = $('div.receiver div.selected.tab').attr('alt');
         value['receiver_profile_age'] = $('div.receiver #receiver_age option:selected').val();
         value['receiver_profile_religion'] = $('div.receiver #receiver_religion option:selected').val();
@@ -133,7 +135,7 @@ $(document).ready(function() {
             </div>
             <!--
             <div class="section shadow">
-                <h3>Profile</h3>
+                <h3>Not Used</h3>
                 <select class="target" id="sender_occupation">
                     <option value="student">Student</option>
                     <option value="education">Education</option>
@@ -166,7 +168,7 @@ $(document).ready(function() {
                 </select>
             </div>
             <div class="section shadow">
-                <h3>Price Range</h3>
+                <h3>Not Used</h3>
 		<input type="text" id="lower" class="smartspinner" /> ~ <input type="text" id="higher" class="smartspinner" />
                 <br>U.S.D.
             </div>
