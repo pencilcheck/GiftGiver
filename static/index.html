@@ -62,7 +62,7 @@ $(document).ready(function() {
                 var results = $.parseJSON(response);
                 $('div#result_list').empty();
                 $.each(results, function(index, value) {
-                    $('div#result_list').append('<p>' + value + '</p>');
+                    $('div#result_list').append('<p><a href=\'http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=' + value + '&x=0&y=0\' target=\'_blank\'>' + value + '</a></p>');
                 });
             }
         });
