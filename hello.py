@@ -40,9 +40,8 @@ def sortGift(arguments):
         input_features = arguments['features'][0].split()
     else:
         input_features = []
+
     occasions = {}
-
-
 
     #reload conceptnet, change the cutoff default
     #cnet = divisi2.load('data:graphs/conceptnet_en.graph.gz')
@@ -124,7 +123,9 @@ def sortGift(arguments):
             bait = float(candidate[1])
             # First level        
             if candidate[0] == gift:
-                score += bait
+                score += bait*10  
+                # Because Part 3 is very important, so we multiply 20.
+                
             '''
             # Second level
             bait2 = bait * 0.25
@@ -167,7 +168,8 @@ def sortGift(arguments):
             bait = float(candidate[1])
             # First level        
             if candidate[0] == gift:
-                score += bait
+                score += bait*10
+                # Because Part 3 is very important, so we multiply 20.
             '''
             # Second level
             bait2 = bait * 0.25
@@ -203,12 +205,94 @@ def sortGift(arguments):
         results.append ( (gift[0], score) )
 
 
+    # part 4: normalize, and then divide 2
+
+    # receiver profile: occupation, age, gender
+    
+    receiver_results = []
+    normalization_coefficient = 5.0
+    receiver_occupation_weight = 3.75 / normalization_coefficient
+    receiver_age_weight = 4.583 / normalization_coefficient
+    receiver_gender_weight = 4.25 / normalization_coefficient
+    types_weight = 4.44 / normalization_coefficient
+    
+    if 'types' in arguments:
+        sum_weight = receiver_occupation_weight + receiver_age_weight + receiver_gender_weight + types_weight
+    else:
+        sum_weight = receiver_occupation_weight + receiver_age_weight + receiver_gender_weight
+
+    # calculate the occupation score, age score, gender score separately.
+    for gift in result_gifts:
+                
+        receiver_occupation_score = receiver_occupation_weight * spread.entry_named(gift[0], receiver_occupation)
+        receiver_age_score = receiver_age_weight * spread.entry_named(gift[0], receiver_age)
+        receiver_gender_score = receiver_gender_weight * spread.entry_named(gift[0], receiver_gender)
+        
+        types_score = 0
+        for type in types: 
+            types_score += types_weight * spread.entry_named(gift[0], type)
+        
+        receiver_total_score = (receiver_occupation_score + receiver_age_score + receiver_gender_score + types_score)/sum_weight
+
+        if receiver_total_score >= 0.1:
+            receiver_results.append ( (gift[0], receiver_total_score) )
+        else:
+            receiver_results.append ( (gift[0], 0) )
+
+    for gift in inferior_gifts:
+
+        receiver_occupation_score = receiver_occupation_weight * spread.entry_named(gift[0], receiver_occupation)
+        receiver_age_score = receiver_age_weight * spread.entry_named(gift[0], receiver_age)
+        receiver_gender_score = receiver_gender_weight * spread.entry_named(gift[0], receiver_gender)
+
+        types_score = 0
+        for type in types: 
+            types_score += types_weight * spread.entry_named(gift[0], type)
+      
+        receiver_total_score = (receiver_occupation_score + receiver_age_score + receiver_gender_score + types_score)/sum_weight
+
+        if receiver_total_score >= 0.1:
+            receiver_results.append ( (gift[0], receiver_total_score) )
+        else:
+            receiver_results.append ( (gift[0], 0) )
+
+
+    combine_results = []
+    # combine_results = results + receiver_results    
+    for gift_3 in results:
+        for gift_4 in receiver_results:
+            if gift_3[0] == gift_4[0]:
+                combine_results.append( (gift_3[0], gift_3[1]+gift_4[1]) )
+
+
+    """
+    # sort result_list
     result_list = sorted (results, cmp=lambda x,y: cmp(x[1], y[1]), reverse=True)[:20]
     
     pp.pprint( result_list )
 
     return_list = [x[0] for x in result_list]
     return return_list
+    """
+
+    """
+    # sort receiver_result_list
+    receiver_result_list = sorted (receiver_results, cmp=lambda x,y: cmp(x[1], y[1]), reverse=True)[:60]
+    
+    pp.pprint( receiver_result_list )
+
+    return_list = [x[0] for x in receiver_result_list]
+    return return_list
+    """
+    
+    # sort combine_result_list
+    combine_result_list = sorted (combine_results, cmp=lambda x,y: cmp(x[1], y[1]), reverse=True)[:20]
+
+    pp.pprint( combine_result_list )
+
+    combine_result_list = [x[0] for x in combine_result_list]
+    return combine_result_list
+    
 
 
     """
