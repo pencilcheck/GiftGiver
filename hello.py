@@ -111,7 +111,10 @@ def sortGift(arguments):
     results = []
 
     # Occasion, Relationship => Category
-    scenario = divisi2.category(occasion,relationship)
+    if relationship == 'none':
+        scenario = divisi2.category(occasion)
+    else:
+        scenario = divisi2.category(occasion,relationship)
 
     # find similarity between a gift and a category    
     candidates = spread.left_category(scenario).top_items(20)
@@ -211,9 +214,9 @@ def sortGift(arguments):
     
     receiver_results = []
     normalization_coefficient = 5.0
-    receiver_occupation_weight = 3.75 / normalization_coefficient
-    receiver_age_weight = 4.583 / normalization_coefficient
-    receiver_gender_weight = 4.25 / normalization_coefficient
+    receiver_occupation_weight = 3.75 / normalization_coefficient if receiver_occupation != 'none' else 0.0
+    receiver_age_weight = 4.583 / normalization_coefficient if receiver_age != 'none' else 0.0
+    receiver_gender_weight = 4.25 / normalization_coefficient if receiver_gender != 'none' else 0.0
     types_weight = 4.44 / normalization_coefficient
     
     if 'types' in arguments:

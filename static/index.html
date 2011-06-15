@@ -87,8 +87,10 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+    <div id='back1'><img src="http://icons.iconarchive.com/icons/deleket/christmas-xp/128/Gift-1-icon.png" style="max-height: 50px;" /><span style="position:relative; top:-10px;">GiftGiver</span></div>
+<div id='back2'></div>
+<!--<img src="static/images/tree.png" style="position: absolute; top: 20%; left: 90%; z-index:-1" />-->
 <div class="container_12">
-    <h1>GiftGiver</h1>
     <div class="grid_4">
         <div class="sender shadow">
             <div class="section shadow">
@@ -122,19 +124,28 @@ $(document).ready(function() {
                     <option value="cousin">Cousin</option>
                     <option value="elder">Elder relative</option>
                     <option value="pet">Pets</option>
-                    <option value="">None of above</option>
+                    <option value="none">None of above</option>
                 </select>
             </div>
             <div class="section shadow">
                 <h3>How do you want the present to be like?</h3>
-                <input class="target feature" type=checkbox value='practical' name="Practical" >Practical
-                <input class="target feature" type=checkbox value='polysemy' name="Polysemy" >Meaningful
-                <input class="target feature" type=checkbox value='appearance' name="Appearance" >Beautiful
-                <input class="target feature" type=checkbox value='trendy' name="Trendy" >Trendy
-                <input class="target feature" type=checkbox value='impersonal' name="Impersonal" >Impersonal
-                <input class="target feature" type=checkbox value='romantic' name="Romantic" >Romantic
-                <input class="target feature" type=checkbox value='geeky' name="Geeky" >Geeky
-                <input class="target feature" type=checkbox value='fun' name="Fun" >Fun
+                <table width=100%>
+                    <tr>
+                        <td><input class="target feature" type=checkbox value='practical' name="Practical" >Practical</td>
+                        <td><input class="target feature" type=checkbox value='polysemy' name="Polysemy" >Meaningful</td>
+                        <td><input class="target feature" type=checkbox value='appearance' name="Appearance" >Beautiful</td>
+                    </tr>
+                    <tr>
+                        <td><input class="target feature" type=checkbox value='trendy' name="Trendy" >Trendy</td>
+                        <td><input class="target feature" type=checkbox value='impersonal' name="Impersonal" >Impersonal</td>
+                        <td><input class="target feature" type=checkbox value='romantic' name="Romantic" >Romantic</td>
+                    </tr>
+                    <tr>
+                        <td><input class="target feature" type=checkbox value='geeky' name="Geeky" >Geeky</td>
+                        <td><input class="target feature" type=checkbox value='fun' name="Fun" >Fun</td>
+                        <td></td>
+                    </tr>
+                </table>
             </div>
             <!--
             <div class="section shadow">
@@ -191,7 +202,7 @@ $(document).ready(function() {
                     <option value="officer">Civil Service</option>
                     <option value="medical">Medical</option>
                     <option value="housekeeper">House keeping</option>
-                    <option value="">None of above</option>
+                    <option value="none">None of above</option>
                 </select>
                 <div class="segmentedControlBase tabs">
                     <div class="button segmentedControl selected tab" alt="male">Male</div>
@@ -209,17 +220,26 @@ $(document).ready(function() {
                     <option value="buddist">Buddist</option>
                     <option value="islam">Muslim</option>
                     <option value="atheist">Atheist</option>
-                    <option value="">None of above</option>
+                    <option value="none">None of above</option>
                 </select>
 
-                <input class="target type" type=checkbox value='music' name="Music" checked>Music
-                <input class="target type" type=checkbox value='literature' name="Literature" checked>Literature
-                <input class="target type" type=checkbox value='art' name="Art" checked>Art
-                <input class="target type" type=checkbox value='game' name="Game" checked>Game
-                <input class="target type" type=checkbox value='electronics' name="Electronics" checked>Electronics
-                <input class="target type" type=checkbox value='sport' name="Sport" checked>Sport
-                <input class="target type" type=checkbox value='food' name="Food" checked>Food
-                <input class="target type" type=checkbox value='travel' name="Travel" checked>Travel
+                <table width=100%>
+                    <tr>
+                        <td><input class="target type" type=checkbox value='music' name="Music" checked>Music</td>
+                        <td><input class="target type" type=checkbox value='literature' name="Literature" checked>Literature</td>
+                        <td><input class="target type" type=checkbox value='art' name="Art" checked>Art</td>
+                    </tr>
+                    <tr>
+                        <td><input class="target type" type=checkbox value='game' name="Game" checked>Game</td>
+                        <td><input class="target type" type=checkbox value='electronics' name="Electronics" checked>Electronics</td>
+                        <td><input class="target type" type=checkbox value='sport' name="Sport" checked>Sport</td>
+                    </tr>
+                    <tr>
+                        <td><input class="target type" type=checkbox value='food' name="Food" checked>Food</td>
+                        <td><input class="target type" type=checkbox value='travel' name="Travel" checked>Travel</td>
+                        <td></td>
+                    </tr>
+                </table>
 		</div>
             
             <div class="section shadow">
@@ -239,12 +259,10 @@ $(document).ready(function() {
     <div class="grid_4">
         <div class="output shadow">
             <h2>Result</h2>
-            <div id='result_list'></div>
+            <div class="section shadow" id='result_list'></div>
             <div class="done">Update Results</div>
         </div>
     </div>
-    <img src="static/images/tree.png" style="position: absolute; top: 20%;
-    left: 90%; z-index:-1" />
 </div> <!-- end of container_12 -->
 </body>
 </html>
