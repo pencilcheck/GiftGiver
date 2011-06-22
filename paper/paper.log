@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.13)  23 JUN 2011 07:03
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.13)  23 JUN 2011 07:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -538,26 +538,53 @@ Package: `setspace' 6.7 <2000/12/01>
 \CommentStream=\write7
 
 Excluding comment 'comment')
-\c@lemma=\count133
-\c@theorem=\count134
- (./paper.aux)
+(/usr/local/texlive/2010/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count133
+\float@exts=\toks39
+\float@box=\box36
+\@float@everytoks=\toks40
+\@floatcapt=\box37
+)
+(/usr/local/texlive/2010/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks41
+\c@algorithm=\count134
+)
+(/usr/local/texlive/2010/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count135
+\c@ALC@line=\count136
+\c@ALC@rem=\count137
+\c@ALC@depth=\count138
+\ALC@tlm=\skip50
+\algorithmicindent=\skip51
+)
+\c@lemma=\count139
+\c@theorem=\count140
+
+(./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 22.
-
-(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 24.
+ (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 *geometry* driver: auto-detecting
@@ -596,16 +623,16 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 
 (/usr/local/texlive/2010/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count135
+\scratchcounter=\count141
 \scratchdimen=\dimen180
-\scratchbox=\box36
-\nofMPsegments=\count136
-\nofMParguments=\count137
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count138
+\scratchbox=\box38
+\nofMPsegments=\count142
+\nofMParguments=\count143
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count144
 \MPscratchDim=\dimen181
-\MPnumerator=\count139
-\everyMPtoPDFconversion=\toks40
+\MPnumerator=\count145
+\everyMPtoPDFconversion=\toks43
 ) (/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2010/04/01 v0.9 Utility functions of pdfTeX for LuaTeX (HO)
 
@@ -653,30 +680,30 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
-LaTeX Font Info:    Try loading font information for U+msa on input line 23.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
+LaTeX Font Info:    Try loading font information for U+msa on input line 25.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 23.
+LaTeX Font Info:    Try loading font information for U+msb on input line 25.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 23.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 25.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 25.
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 25.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
@@ -687,7 +714,7 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 54.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 56.
  [1
 Non-PDF special ignored!{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/upd
 map/pdftex.map}
@@ -713,7 +740,7 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 
-Overfull \hbox (8.63185pt too wide) in paragraph at lines 94--95
+Overfull \hbox (14.05519pt too wide) in paragraph at lines 97--98
 [][] 
  []
 
@@ -721,30 +748,30 @@ Overfull \hbox (8.63185pt too wide) in paragraph at lines 94--95
 File: ui.png Graphic file (type png)
  <use ui.png>
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 116.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 119.
 
-Underfull \hbox (badness 1888) in paragraph at lines 116--138
+Underfull \hbox (badness 1888) in paragraph at lines 119--140
  \OT1/ptm/b/n/10 Fea-ture Vec-tors \OT1/ptm/m/n/10 We have de-cided to take a f
 ea-ture
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--138
+Underfull \hbox (badness 10000) in paragraph at lines 119--140
 \OT1/ptm/m/n/10 match-ing ap-proach of the rec-om-men-da-tion sys-tem.
  []
 
 
-Underfull \hbox (badness 7326) in paragraph at lines 116--138
+Underfull \hbox (badness 7326) in paragraph at lines 119--140
 \OT1/ptm/m/n/10 We an-a-lyze 60 gifts items and 3 com-mon oc-ca-
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 116--138
+Underfull \hbox (badness 1571) in paragraph at lines 119--140
 \OT1/ptm/m/n/10 sions and ex-tract only 8 fea-tures. The fea-tures are:
  []
 
 
-Overfull \hbox (19.01292pt too wide) in paragraph at lines 116--138
+Overfull \hbox (19.01292pt too wide) in paragraph at lines 119--140
 [] 
  []
 
@@ -755,48 +782,50 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
- <graph.png, id=21, 417.2388pt x 203.3196pt>
+
+Overfull \hbox (96.18396pt too wide) in paragraph at lines 145--152
+[]\OT1/ptm/m/n/10 For ex-am-ple: [] 
+ []
+
+<graph.png, id=21, 417.2388pt x 203.3196pt>
 File: graph.png Graphic file (type png)
  <use graph.png>
-Underfull \hbox (badness 3281) in paragraph at lines 200--200
+Underfull \hbox (badness 3281) in paragraph at lines 218--218
 []\OT1/ptm/m/n/10 Was the price check-ing fea-ture
  []
 
 
-Overfull \hbox (7.60611pt too wide) in paragraph at lines 212--213
+Overfull \hbox (7.60611pt too wide) in paragraph at lines 230--231
+[][] 
+ []
+
+[3 <./ui.png> <./graph.png>]
+Overfull \hbox (7.61678pt too wide) in paragraph at lines 290--291
 [][] 
  []
 
 
-Overfull \hbox (7.61678pt too wide) in paragraph at lines 272--273
-[][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3 <./ui.png> <./graph.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 277--285
+Underfull \hbox (badness 10000) in paragraph at lines 295--303
 \OT1/ptm/m/n/10 adfl lkjsdl;fkjdls;fkjasdl;fkaj ds;flkadjsfa;dlskfja;sd
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--285
+Underfull \hbox (badness 10000) in paragraph at lines 295--303
 \OT1/ptm/m/n/10 lk-f-jad;lkfjad;lfkjsdf asd;lfkjads;flkaj sdf;lkasdjf;la kd-
  []
 
 
-Underfull \hbox (badness 4441) in paragraph at lines 277--285
+Underfull \hbox (badness 4441) in paragraph at lines 295--303
 \OT1/ptm/m/n/10 sjf;adlkjfsd;alkjfdasf dfask-fjds;lkfjas;d lk-fjds;lfkjadsf;adf
 
  []
 
 (./paper.bbl) [4] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 15172 strings out of 493747
- 332543 string characters out of 3143546
- 480744 words of memory out of 3000000
- 18125 multiletter control sequences out of 15000+200000
+ 15455 strings out of 493747
+ 336100 string characters out of 3143546
+ 490486 words of memory out of 3000000
+ 18394 multiletter control sequences out of 15000+200000
  21477 words of font info for 44 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  51i,17n,93p,762b,1637s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -808,7 +837,7 @@ cm/cmsy10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy9.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmb8a.pf
 b></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/lo
 cal/texlive/2010/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (4 pages, 473033 bytes).
+Output written on paper.pdf (4 pages, 475080 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  36 compressed objects within 1 object stream
