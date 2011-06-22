@@ -9,6 +9,8 @@
 \usepackage{amsthm} 
 \usepackage{setspace}
 \usepackage{comment}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
 
 %\doublespacing
@@ -89,7 +91,8 @@ Based on those two results from two different groups of people, we cut off some 
     \addplot coordinates {(10, 2.583)};
     \addplot coordinates {(11, 2.583)};
     \addplot coordinates {(12, 1.583)};
-    \legend{Occasion,Relationship,Price,Date,Interests,Receiver's Career,Receiver's Gender,Receiver's Religion,Receiver's Age,Sender's Career,Sender's Gender,Sender's Religion}
+    \addplot coordinates {(13, 2.583)};
+    \legend{Occasion,Relationship,Price,Date,Interests,Receiver's Career,Receiver's Gender,Receiver's Religion,Receiver's Age,Sender's Career,Sender's Gender,Sender's Religion, Sender's Age}
     \end{axis}
 \end{tikzpicture}
 
@@ -133,15 +136,30 @@ Romantic & Is it present for love and sweet? \\
 Geeky & Is it electrical? \\
 \hline
 Fun & Is it let you happy in a pure way? \\
-\hline
 \end{tabular}
 
-Each gifts and occasion will have a vector of 8 features.  The value is normalized to[0,1].
+Each object such as gift is defined by the feature vector. Each value is normalized from [0,1].
+Occasion is also defined by the feature vector, however it is a special object, its existance
+is essensial to our algorithms. Just as the same as the feature vectors defined in Shen's work~\cite{Shen}.
 
-Then the Vector will looks like below:
-Gift     -> Book              [ 1.0, 0.6, 0.2, 0.4, 1.0, 0.0, 0.0, 0.6]
-Occasion->Valentine’s day     [ 0.2, 1.0, 0.6, 0.2, 0.0, 1.0, 0.2, 0.2]
+For example:
+\begin{tabular}{l l}
+\hline\hline
+Book (Gift) & (1.0, 0.6, 0.2, 0.4, 1.0, 0.0, 0.0, 0.6) \\
+\hline
+Valentine’s day (Occasion) & (0.2, 1.0, 0.6, 0.2, 0.0, 1.0, 0.2, 0.2) \\
+\end{tabular}
 
+
+Occasion is treated differently than normal object. We sort our gift candidate from our sample pool of gifts of 20 by the mean square distance with target occasion that is specified in the UI by the users. Below the pseudocode described our first algorithm to sort gifts.
+
+\begin{algorithm}
+\caption{Mean Squared Distance sorting}
+\label{mse}
+\begin{algorithmic}
+\STATE $X \Leftarrow x$
+\end{algorithmic}
+\end{algorithm}
 
 Part 1
 Pseudocode
