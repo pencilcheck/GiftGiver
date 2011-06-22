@@ -76,7 +76,7 @@ Based on those two results from two different groups of people, we cut off some 
 
 
 \begin{tikzpicture}
-    \begin{axis}[x tick label style={/pgf/number format/1000 sep=}, ylabel=Weight, legend style={at={(0.5, -0.15)}, anchor=north, legend columns=2}, ybar, bar width=7pt]
+    \begin{axis}[xlabel=Features, ylabel=Weight, legend style={at={(0.5, -0.2)}, anchor=north}]
     \addplot coordinates {(1, 4.583)};
     \addplot coordinates {(2, 4.917)};
     \addplot coordinates {(3, 4)};
@@ -112,17 +112,29 @@ Compare to major e-commerce websites that sells real products, our website doesn
 This section briefly discussed our appoaches to ranking the gifts and algorithms with commonsense knowledge base
 
 \subsubsection{Feature Vectors}
-As a recommendation system, we use a feature matching type of the recommendation system.
-We analyze 60 gifts items and 3 common occasions by 8 features.  
+
+We have decided to take a feature matching approach of the recommendation system.
+We analyze 60 gifts items and 3 common occasions and extract only 8 features.  
 The features are:
-1.[ Practical   ] – Is it functional or just for decoration?
-2.[ Meaningful  ] – Is it has other meaning besides its function? 
-3.[Beautiful    ] – Is it good looking?
-4.[Trendy       ] – Is it fashion?
-5.[Impersonal   ] – Is it just for him/her or other people can use it?
-6.[Romantic ] – Is it present for love and sweet?
-7.[Geeky        ] – Is it electrical?
-8.[Fun      ] – Is it let you happy in a pure way?
+\begin{tabular}{l l}
+\hline\hline
+Practical & Is it functional or just for decoration? \\
+\hline
+Meaningful & Is it has other meaning besides its function? \\
+\hline
+Beautiful & Is it good looking? \\
+\hline
+Trendy & Is it fashion? \\
+\hline
+Impersonal & Is it just for him/her or other people can use it? \\
+\hline
+Romantic & Is it present for love and sweet? \\
+\hline
+Geeky & Is it electrical? \\
+\hline
+Fun & Is it let you happy in a pure way? \\
+\hline
+\end{tabular}
 
 Each gifts and occasion will have a vector of 8 features.  The value is normalized to[0,1].
 
