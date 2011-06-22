@@ -1,0 +1,81 @@
+Related Work:
+
+Recommender systems大部份是關於.......
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+User-based Collaborative Filtering:
+
+    An Algorithmic Framework for Performing Collaborative Filtering
+
+Item-based Collaborative Filtering:
+
+    Amazon.com Recommendations: Item-to-Item Collaborative Filtering
+    Collaborative Filtering Based on Transitive Correlations Between Items
+    Item-based collaborative filtering recommendation algorithms
+
+Hybrid Recommender Systems:
+
+    Hybrid Systems for Personalized Recommendations
+    In Intelligent Techniques for Web Personalization (Lecture Notes in Computer Science) 
+
+Evaluating Recommender Systems:
+
+    Evaluating Recommender Systems: An Evaluation Framework to Predict User Satisfaction for Recommender Systems in an Electronic Programme Guide Context
+    A new approach to evaluating novel recommendations
+
+Recommending Movies:(Interesting Applications of Recommender Systems)
+
+    SuggestBot: Using Intelligent Task Routing to Help People Find Work in Wikipedia
+
+Recommending Courses:(Interesting Applications of Recommender Systems)
+    
+    Expressing and Combining Flexible Recommendations
+
+Top 10 Recommendation:
+
+    Goal-oriented web-site navigation for on-line shoppers
+
+
+-------------------------------------------------------------------------------------------------------
+
+Reference
+
+1. What am I gonna wear?: Scenario-Oriented recommendation
+2. Personal Choice Point: Helping users visualize what it means to buy a BMW
+3. Beating Common Sense into Interactive Applications
+4. A goal-oriented interface to consumer electronics using planning and commonsense reasoning
+5. User Interface Goals, AI Opportunities
+6. An Algorithmic Framework for Performing Collaborative Filtering
+7. Amazon.com Recommendations: Item-to-Item Collaborative Filtering
+8. Hybrid Systems for Personalized Recommendations
+9. Evaluating Recommender Systems: An Evaluation Framework to Predict User Satisfaction for Recommender Systems in an Electronic Programme Guide Context
+10. A new approach to evaluating novel recommendations
+11. SuggestBot: Using Intelligent Task Routing to Help People Find Work in Wikipedia
+12. Expressing and Combining Flexible Recommendations
+13. Goal-oriented web-site navigation for on-line shoppers
+14. Item-based collaborative filtering recommendation algorithms
+
+
+// 以下網址不知道該如何放到.bib檔裡，且可顯示出來。
+15. Gift ideas: http://www.gifts.com
+16. Hallmark Cards: http://www.hallmark.com/online/
+17. Amazon gifts: http://www.amazon.com/gp/gift-central
+18. Find gift: http://www.findgift.com/Categories/Toys/
+19. Yahoo! Gift Finder: http://shopping.yahoo.com/
+20. JCpenny: http://www.jcpenney.com/jcp/default.aspx
+21. Macy's: http://www1.macys.com/index.ognc
+22. Sears: http://www.sears.com/
+
+
+
+
+---------------------------------------------
+
+推薦相關論文(實驗室的wiki)
+https://wiki.agent.csie.ntu.edu.tw/doku.php?id=david_wu
+
+
