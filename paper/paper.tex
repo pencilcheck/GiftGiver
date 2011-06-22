@@ -8,6 +8,7 @@
 \usepackage{graphicx,psfrag}
 \usepackage{amsthm} 
 \usepackage{setspace}
+\usepackage{comment}
 \DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
 
 %\doublespacing
@@ -33,7 +34,11 @@ How to find a suitable gift? In the past, you go to a department store, and try 
 
 (Such as see’s toffee chocolate 16oz 20U.S.D.) (For non experts, they can hardly show their intimate part.)  Some people do ask others' opinions when they are picking a nice gift, but (as the sender consulting more and more people) gift giving should kept secret to the receiver, the gift might not be a surprise when everyone knows about it (because people like to gossip all day).
 
-Based on the above reasons, we explored a system we (named) called "GiftGiver" to recommend a list of gifts to help senders. In order to figure out what should be a nice gift,  we followed the idea of Scenario-Oriented Recommendation [Edward].   We analyzed each gift in to 8 features.  (Besides, gifts item are not specific product.)   GiftGiver come out a concept of the gift idea, such like flower, tea mug etc.  In the way that sender can have their own gift choice.  If sender has no idea about a particular item, our system can also gives sender the detail of the gift (which parse) given from other e-commerce websites.
+Based on the above reasons, we explored a system we (named) called "GiftGiver" to recommend a list of gifts to help senders. In order to figure out what should be a nice gift,  we followed the idea of Scenario-Oriented Recommendation~\cite{Shen} [Edward].   We analyzed each gift in to 8 features.  (Besides, gifts item are not specific product.)   GiftGiver come out a concept of the gift idea, such like flower, tea mug etc.  In the way that sender can have their own gift choice.  If sender has no idea about a particular item, our system can also gives sender the detail of the gift (which parse) given from other e-commerce websites.
+
+(More information actually) To give more variety of the recommendations for different occasions and different personalities, ( helped us to find a better gift recommendation.   To collect information from the senders), we built a website.   The UI’s content includes occasion, relationship, sender's favor, receiver's profile (which includes receiver's career, gender, age, interests), send date.)
+Sender can easily fill in their consideration step by step. 
+After fill in the answer, system will comes out 20 recommended gifts.  If receiver are not satisfied, he/she can also change the answer and search again.
 
 Our ambiguous (The uncommercial) design made our system to be a good helper for the people who might just want a general nudge to the right directions or some inspirations on what to sent (a gift).  (As group computer scientist, using computer technology to help people to have a better life is a dream of us.)
 
@@ -42,48 +47,14 @@ Our ambiguous (The uncommercial) design made our system to be a good helper for 
 
 Briefly explain relevant work.
 
-\subsection{Specific Papers}
-Here, list the 3-4 papers you will focus on, along with a brief intro
-that ties them together.
-
-
-\section{Paper 1 -- An Explanatory Title}
-\subsection{Problem Description}
-The specific problem addressed in the paper.
-
-\subsection{Preliminaries}
-Background material one needs to know to understand this paper
-(examples could be support vector machines, markov decision processes,
-visibility graphs etc.) along with brief explanations.
-
-
-\subsection{Approach}
-How does the paper solve the problem?
-
-\subsection{Critique}
-Pros and cons. Do they make unreasonable assumptions? How do they show
-the utility of their results? Do they prove them or provide extensive simulations?
-
 \section{System Architecture}
 
-\subsection{Questionnaire}
-Before implementing the system, we want to figure out what might be the influence factors for picking gifts.  We design a questionnaire to ask 3 adult females and 10 adult males about what they will consider when they sent a gift.
-(The question is like “when you are picking a gift, is the relation between you and receiver seems important to you?”)   Each question has 5 levels of score.   1 score means not important and 5 score instead.
-
-
-From the result table, we can separate the score in to 3 part – Red (score> 4), pink (4>score>3), and green (3>score).  The red part is the most important union.  Such as relationship, price, sender’s gender etc.
-This result is quiet reasonable.   In general, the gift will finally own by the receiver than own by both sender and receiver.   So the options about receivers are higher than the options about senders.  In other part, price, occasion, sent date and receiver’s gender are common to affect whether the gift is reasonable. 
-
- 
- Besides, we interview 5 people about how they thinking when they are consider a nice gift.  We find out that the interviewer has the same consideration with questionnaire answer.   We also find out people consider about the occasion first, then is relationship.  The other effect seems not relative to each other effect for them.
-
- More information actually helped us to find a better gift recommendation.   To collect information from the senders, we decide to form a web user interface.   The UI’s content includes occasion, relationship, sender's favor, receiver's profile (which includes receiver's career, gender, age, interests), send date.
-
+This section describes the basic structure of our system, the flow of the system and we go through some of the UI designs and finally touch on the algorithms we used to rank and filter the gift list.
 
 \subsection{Flow}
-First, we let senders fill in their consideration on the UI question.   For reducing the loading of senders, we using check box and combo box and make a lot of common option.   
-Second, after fill in the questions, the system will use the information from the UI questions, generate a list of 20 recommended gifts.  
-Senders can also click the name of specific gift.  System will help sender to find the relative product form the commercial websites.
+Users of our recommender system starts with filling in their considerations on the UI interface. (For reducing the loading of senders, we using check box and combo box and make a lot of common option.)   
+After filling in the options and considerations, the users will be greeted  a list of 20 recommended gifts generated by the system from the information provided by the users.
+If the users want more information on the recommended gift item, they can click the link and the system will help the users to find the relative products from several popular e-commerce websites.
 
 \begin{figure}[h!t]
 \centering{
@@ -94,10 +65,36 @@ Senders can also click the name of specific gift.  System will help sender to fi
 
 
 \subsection{UI Design}
-The UI of the GiftGiver is as below[picture2.1], it is a 1page website.   We separate the question in to 3 big part, the main consideration, the Receiver profile and the Result.   Sender can easily fill in their consideration step by step. 
-After fill in the answer, system will comes out 20 recommended gifts.  If receiver are not satisfied, he/she can also change the answer and search again.
+The UI of the GiftGiver is given in Figure~\ref{ui}, it is a website with a rich set of options for users to choose his/her preference for the gifts. We categorize the questions in to 3 main parts, the main considerations, the Receiver profile and the Result based on the result of the questionnaire. Originally we considered both the features and preference of the sender and the receiver, however we want to learn more about what might be the influencial factors for picking gifts.  We designed a questionnaire to ask 3 adult females and 10 adult males about what they will consider when they sent a gift.
+(The question is like “when you are picking a gift, is the relation between you and receiver seems important to you?”)   Each question has a scale from 1 to 5, from unimportant to most important.
 
-Compare to gifts website, our UI has a better flow but less option in some question.   For example, Gifts.com has 9 ages degree, such as 0~6, 7~12, 13~19, 20~30, 31~40 etc.   However, we prefer using fuzzy set to define our age instead of clear separation by years.   Because nouns like child, adult etc. will help the system in the commonsense part.  On the other hand, some people still looks like a child even that person has already more than 30s.  The fuzzy part will come out positive result.
+(From the result table, we can separate the score in to 3 part – Red (score> 4), pink (4>score>3), and green (3>score).  The red part is the most important union.  Such as relationship, price, sender’s gender etc. This result is quiet reasonable.   In general, the gift will finally own by the receiver than own by both sender and receiver.   So the options about receivers are higher than the options about senders.  In other part, price, occasion, sent date and receiver’s gender are common to affect whether the gift is reasonable.)
+
+Furthermore, we interviewed 5 differnet people the primary concerns when picking a nice gift. We later found out the result of the interviews that they agreeed the same considerations with the questionnaire results. The results had shown that people  concern about the occasion more than relationship.  Other considerations did not seem to influence too much to the decision making process compared to occasion and relationship.
+
+Based on those two results from two different groups of people, we cut off some of the considerations from original design, such as Sender's religion, Sender's Gender, etc.
+
+
+\begin{tikzpicture}
+    \begin{axis}[x tick label style={/pgf/number format/1000 sep=}, ylabel=Weight, legend style={at={(0.5, -0.15)}, anchor=north, legend columns=2}, ybar, bar width=7pt]
+    \addplot coordinates {(1, 4.583)};
+    \addplot coordinates {(2, 4.917)};
+    \addplot coordinates {(3, 4)};
+    \addplot coordinates {(4, 4.06)};
+    \addplot coordinates {(5, 4.31)};
+    \addplot coordinates {(6, 3.75)};
+    \addplot coordinates {(7, 4.583)};
+    \addplot coordinates {(8, 2.75)};
+    \addplot coordinates {(9, 4.25)};
+    \addplot coordinates {(10, 2.583)};
+    \addplot coordinates {(11, 2.583)};
+    \addplot coordinates {(12, 1.583)};
+    \legend{Occasion,Relationship,Price,Date,Interests,Receiver's Career,Receiver's Gender,Receiver's Religion,Receiver's Age,Sender's Career,Sender's Gender,Sender's Religion}
+    \end{axis}
+\end{tikzpicture}
+
+
+Compare to major e-commerce websites that sells real products, our website doesn't have the real database for all different kinds of gifts, but we had a better flow and more variety and flexibility of options for users to pick. There is also another extinction between our UI design and those of major corporations. For example, Gifts.com has 9 ages degree, such as 0~6, 7~12, 13~19, 20~30, 31~40 etc, we use fuzzy set to define our age instead of clear separation by years. Because nouns like child, adult etc. will help the system in the commonsense part.  On the other hand, some people still looks like a child even that person has already more than 30s.  The fuzzy part will come out positive result.
 
 
 
@@ -107,14 +104,15 @@ Compare to gifts website, our UI has a better flow but less option in some quest
     \includegraphics[width=\linewidth]{ui.png}
 }
 \caption{UI design}
+\label{ui}
 \end{figure}
 
 \subsection{Methodology}
 
-Briefly explain our algorithms
+This section briefly discussed our appoaches to ranking the gifts and algorithms with commonsense knowledge base
 
 \subsubsection{Feature Vectors}
-As a recommendation system, we use a feature matching type of the recommendation system[韋狄再common sense報過的那邊survey paper].
+As a recommendation system, we use a feature matching type of the recommendation system.
 We analyze 60 gifts items and 3 common occasions by 8 features.  
 The features are:
 1.[ Practical   ] – Is it functional or just for decoration?
@@ -133,6 +131,12 @@ Gift     -> Book              [ 1.0, 0.6, 0.2, 0.4, 1.0, 0.0, 0.0, 0.6]
 Occasion->Valentine’s day     [ 0.2, 1.0, 0.6, 0.2, 0.0, 1.0, 0.2, 0.2]
 
 
+Part 1
+Pseudocode
+
+
+Part 2
+Pseudocode
 
 
 \subsubsection{Commonsense knowledge base}
@@ -148,6 +152,7 @@ ConceptNet is an open source project, with a Python implementation and a REST AP
     \includegraphics[width=\linewidth]{graph.png}
 }
 \caption{ConceptNet concept graph}
+\label{graph}
 \end{figure}
 
 
@@ -257,12 +262,16 @@ According to the plot above, the distribution is pretty even through out the sea
 
 \section{Conclusion}
 
-A comparison of the approaches and contributions of the paper.
-What is solved, what is left out.
+adfl lkjsdl;fkjdls;fkjasdl;fkaj ds;flkadjsfa;dlskfja;sd lkfjad;lkfjad;lfkjsdf
+asd;lfkjads;flkaj sdf;lkasdjf;la kdsjf;adlkjfsd;alkjfdasf
+dfaskfjds;lkfjas;d lkfjds;lfkjadsf;adf
+asfsa
+dfdas
+fsad
+fsad
+fdsaf
 
-\bibliography{aai2011}
-\bibliographystyle{abbrv}
-
-
-
+\newpage
+\bibliographystyle{plain}
+\bibliography{AAI}
 \end{document}
