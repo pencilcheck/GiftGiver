@@ -1,0 +1,151 @@
+% This file was created with JabRef 2.6.
+% Encoding: UTF8
+
+@MISC{de:Recommender,
+  author = {Joost {Wit} de},
+  title = {Evaluating recommender systems : an evaluation framework to predict
+	user satisfaction for recommender systems in an electronic programme
+	guide context},
+  month = {May},
+  year = {2008},
+  abstract = {This research will primarily focus on recommender systems that recommend
+	TV programmes as part of an EPG, since the number of TV channels
+	(and thus the number of TV shows) that are available increased tremendously
+	due to the introduction of digital television. Therefore people watching
+	television also suffer from information overloaded and recommender
+	systems start to emerge in this domain},
+  url = {http://essay.utwente.nl/59711/}
+}
+
+@BOOK{Bruke:Recommender,
+  title = {Hybrid Systems for Personalized Recommendations.},
+  publisher = {In Intelligent Techniques for Web Personalization (Lecture Notes
+	in Computer Science) (Vol. 3169, pp. 133-152)},
+  year = {2005},
+  author = {Burke, Robin},
+  owner = {weiti},
+  timestamp = {2011.06.22}
+}
+
+@INPROCEEDINGS{Celma:Recommender,
+  author = {Celma,  Òscar and Herrera, Perfecto},
+  title = {A New Approach to Evaluating Novel Recommendations},
+  booktitle = {ACM conference on Recommender systems (RecSys '08)},
+  year = {2008},
+  owner = {weiti},
+  timestamp = {2011.06.22}
+}
+
+@INPROCEEDINGS{Cosley:,
+  author = {Cosley, Dan and Frankowski, Dan and Terveen, Loren and Riedl John},
+  title = {SuggestBot: using intelligent task routing to help people find work
+	in wikipedia},
+  booktitle = {International Conference on Intelligent User Interfaces (IUI-07)},
+  year = {2007},
+  owner = {weiti},
+  timestamp = {2011.06.22}
+}
+
+@ARTICLE{Deutch:Recommendation,
+  author = {Deutch, Daniel and Milo, Tova and Yam, Tom},
+  title = {Goal-oriented web-site navigation for on-line shoppers},
+  journal = {VLDB Endowment},
+  year = {2009},
+  volume = {2},
+  pages = {1642 -- 1645},
+  owner = {weiti},
+  timestamp = {2011.06.22}
+}
+
+@INPROCEEDINGS{Andrew:Recommendation,
+  author = {Fano, Andrew and Kurth, Scott W},
+  title = {Personal choice point: helping users visualize what it means to buy
+	a BMW},
+  booktitle = {International Conference on Intelligent User Interfaces (IUI-03)},
+  year = {2003},
+  owner = {weiti},
+  timestamp = {2011.06.22}
+}
+
+@INPROCEEDINGS{Herlocker:collaborative_filtering,
+  author = {Herlocker, Jonathan L and Konstan, Joseph A and Borchers, AI and
+	Riedl John},
+  title = {An algorithmic framework for performing collaborative filtering},
+  booktitle = {International ACM SIGIR conference on Research and development in
+	information retrieval (SIGIR-99)},
+  year = {1999},
+  owner = {weiti},
+  timestamp = {2011.06.22}
+}
+
+@INPROCEEDINGS{Koutrika:Recommendation,
+  author = {Koutrika, Georgia and Bercovitz, Benjamin and Garcia-Molina, Hector},
+  title = {FlexRecs: expressing and combining flexible recommendations},
+  booktitle = {international ACM SIGMOD conference on Management of data (SIGMOD-09)},
+  year = {2009},
+  owner = {weiti},
+  timestamp = {2011.06.22}
+}
+
+@ARTICLE{Lieberman:UIGoals,
+  author = {Lieberman, Henry},
+  title = {User Interface Goals, AI Opportunities},
+  journal = {AI Magazine},
+  year = {2009},
+  volume = {30},
+  pages = {16--23},
+  keywords = {common sense, goal, HCI, AI, interface, user interface},
+  owner = {Yen-Ling Kuo},
+  timestamp = {2010.12.09}
+}
+
+@ARTICLE{Lieberman:GoalConsumer,
+  author = {Lieberman, Henry and Espinosa, José},
+  title = {A goal-oriented interface to consumer electronics using planning
+	and commonsense reasoning},
+  journal = {Knowledge-Based Systems},
+  year = {2007},
+  volume = {20},
+  pages = {592 -- 606},
+  keywords = {common sense, application, goal-oriented interface, planning},
+  owner = {Yen-Ling Kuo},
+  timestamp = {2010.12.09}
+}
+
+@ARTICLE{Lieberman:2004App,
+  author = {Lieberman, Henry and Liu, Hugo and Singh, Push and Barry, Barbara},
+  title = {Beating Common Sense Into Interactive Applications},
+  journal = {AI Magazine},
+  year = {2004},
+  volume = {25},
+  pages = {63--76},
+  number = {4},
+  keywords = {common sense, application, interaction},
+  owner = {Yen-Ling Kuo},
+  timestamp = {2010.03.13}
+}
+
+@ARTICLE{Linden:Recommendations,
+  author = {Linden, Greg and Smith, Brent and York, Jeremy},
+  title = {Amazon.com Recommendations: Item-to-Item Collaborative Filtering},
+  journal = {IEEE Computer Society},
+  year = {2003},
+  volume = {7},
+  pages = {76 - 80},
+  owner = {weiti},
+  timestamp = {2011.06.22}
+}
+
+@INPROCEEDINGS{Shen:Recomendation,
+  author = {Shen, Edward and Lieberman, Henry and Lam, Francis},
+  title = {What Am I Gonna Wear: Scenario-Oriented Recommendation},
+  booktitle = {International Conference on Intelligent User Interfaces (IUI-07)},
+  year = {2007},
+  address = {Honolulu},
+  month = {January},
+  keywords = {common sense, application, recomendation, scenario, spreading activation,
+	OMCS},
+  owner = {Yen-Ling Kuo},
+  timestamp = {2010.03.14}
+}
+
