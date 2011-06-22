@@ -76,7 +76,7 @@ Based on those two results from two different groups of people, we cut off some 
 
 
 \begin{tikzpicture}
-    \begin{axis}[x tick label style={/pgf/number format/1000 sep=}, ylabel=Weight, enlargelimits=0.15, legend style={at={(0.5, -0.15)}, anchor=north, legend columns=2}, ybar, bar width=7pt]
+    \begin{axis}[x tick label style={/pgf/number format/1000 sep=}, ylabel=Weight, legend style={at={(0.5, -0.15)}, anchor=north, legend columns=2}, ybar, bar width=7pt]
     \addplot coordinates {(1, 4.583)};
     \addplot coordinates {(2, 4.917)};
     \addplot coordinates {(3, 4)};
@@ -109,10 +109,10 @@ Compare to major e-commerce websites that sells real products, our website doesn
 
 \subsection{Methodology}
 
-Briefly explain our algorithms
+This section briefly discussed our appoaches to ranking the gifts and algorithms with commonsense knowledge base
 
 \subsubsection{Feature Vectors}
-As a recommendation system, we use a feature matching type of the recommendation system[韋狄再common sense報過的那邊survey paper].
+As a recommendation system, we use a feature matching type of the recommendation system.
 We analyze 60 gifts items and 3 common occasions by 8 features.  
 The features are:
 1.[ Practical   ] – Is it functional or just for decoration?
