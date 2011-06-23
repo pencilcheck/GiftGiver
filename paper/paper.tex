@@ -42,8 +42,17 @@ After fill in the answer, system will comes out 20 recommended gifts.  If receiv
 
 We tried to make a system to be a good helper for the people who might just want a general nudge to the right directions or some inspirations on what to sent.  
 
-\section{Background and Related Work}
+\section{Related Work}
+Traditionally, recommender systems are classified into the following three categories: 
+1. User-based Collaborative Filtering Systems~\cite{Herlocker}:
+The user will be recommended items similar to the ones the user preferred in the past.
+2. Item-based Collaborative Filtering Systems~\cite{Sarwar, Linden}:
+The user will be recommended items that people with similar tastes and preferences liked in the past.
+3. Hybrid Recommender Systems[Reference 2篇]:
+These methods combine the above two methods.
+They usually suggest books, music albums, from a set of input parameters, possibly including user profiles, purchase history, etc.
 
+In recent years, many researchers use novel technology to recommend, e.g. Edward use Commonsense to recommend clothing [ ].   Furthermore, some researchers use recommender system in interesting domains, such as Cosley’s Movie Recommendation[ ], and Koutrika’s Course Recommendation[ ].   Moreover, the display style of Top 10 is popular again recently []. We follow the latest trend, and use the novel technology in interesting domain.   In short, we are the first one that combine traditional recommendations and Commonsense, and apply them in Gift Recommendation.
 
 
 \section{System Architecture}
@@ -304,20 +313,6 @@ According to the plot above, the distribution is pretty even through out the sea
     };
     \end{axis}
 \end{tikzpicture}
-
-
-\section{RELATED WORK}
-Survey the most important recommendation system, we have a few conclusions.
-Traditionally, recommender systems are usually classified into the following three categories: 
-1. User-based Collaborative Filtering Systems[Reference 1篇]:
-The user will be recommended items similar to the ones the user preferred in the past.
-2. Item-based Collaborative Filtering Systems[Reference 3篇]:
-The user will be recommended items that people with similar tastes and preferences liked in the past.
-3. Hybrid Recommender Systems[Reference 2篇]:
-These methods combine the above two methods.
-They usually suggest books, music albums, from a set of input parameters, possibly including user profiles, purchase history, etc.
-
-In recent years, many researchers use novel technology to recommend, e.g. Edward use Commonsense to recommend clothing [ ].   Furthermore, some researchers use recommender system in interesting domains, such as Cosley’s Movie Recommendation[ ], and Koutrika’s Course Recommendation[ ].   Moreover, the display style of Top 10 is popular again recently []. We follow the latest trend, and use the novel technology in interesting domain.   In short, we are the first one that combine traditional recommendations and Commonsense, and apply them in Gift Recommendation.
 
 
 \section{Conclusion}

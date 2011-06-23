@@ -1,5 +1,21 @@
 \begin{thebibliography}{1}
 
+\bibitem{Herlocker}
+Jonathan~L Herlocker, Joseph~A Konstan, AI~Borchers, and Riedl John.
+\newblock An algorithmic framework for performing collaborative filtering.
+\newblock In {\em International ACM SIGIR conference on Research and
+  development in information retrieval (SIGIR-99)}, 1999.
+
+\bibitem{Linden}
+Greg Linden, Brent Smith, and Jeremy York.
+\newblock Amazon.com recommendations: Item-to-item collaborative filtering.
+\newblock {\em IEEE Computer Society}, 7:76 -- 80, 2003.
+
+\bibitem{Sarwar}
+Badrul Sarwar, George Karypis, Joseph Konstan, and Reidl John.
+\newblock Item-based collaborative filtering recommendation algorithms.
+\newblock In {\em International conference on World Wide Web(WWW-01)}, 2001.
+
 \bibitem{Shen}
 Edward Shen, Henry Lieberman, and Francis Lam.
 \newblock What am i gonna wear: Scenario-oriented recommendation.
