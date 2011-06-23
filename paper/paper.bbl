@@ -1,10 +1,34 @@
 \begin{thebibliography}{1}
 
+\bibitem{Bruke}
+Robin Burke.
+\newblock {\em Hybrid Systems for Personalized Recommendations.}
+\newblock In Intelligent Techniques for Web Personalization (Lecture Notes in
+  Computer Science) (Vol. 3169, pp. 133-152), 2005.
+
+\bibitem{Cosley}
+Dan Cosley, Dan Frankowski, Loren Terveen, and Riedl John.
+\newblock Suggestbot: using intelligent task routing to help people find work
+  in wikipedia.
+\newblock In {\em International Conference on Intelligent User Interfaces
+  (IUI-07)}, 2007.
+
+\bibitem{Deutch}
+Daniel Deutch, Tova Milo, and Tom Yam.
+\newblock Goal-oriented web-site navigation for on-line shoppers.
+\newblock {\em VLDB Endowment}, 2:1642 -- 1645, 2009.
+
 \bibitem{Herlocker}
 Jonathan~L Herlocker, Joseph~A Konstan, AI~Borchers, and Riedl John.
 \newblock An algorithmic framework for performing collaborative filtering.
 \newblock In {\em International ACM SIGIR conference on Research and
   development in information retrieval (SIGIR-99)}, 1999.
+
+\bibitem{Koutrika}
+Georgia Koutrika, Benjamin Bercovitz, and Hector Garcia-Molina.
+\newblock Flexrecs: expressing and combining flexible recommendations.
+\newblock In {\em international ACM SIGMOD conference on Management of data
+  (SIGMOD-09)}, 2009.
 
 \bibitem{Linden}
 Greg Linden, Brent Smith, and Jeremy York.
