@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.13)  23 JUN 2011 15:21
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.13)  23 JUN 2011 15:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -803,7 +803,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 262--263
  []
 
 
-Underfull \hbox (badness 3281) in paragraph at lines 301--301
+Underfull \hbox (badness 3281) in paragraph at lines 302--302
 []\OT1/ptm/m/n/10 Was the price check-ing fea-ture
  []
 
@@ -832,7 +832,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  16687 strings out of 493747
  354314 string characters out of 3143546
- 514945 words of memory out of 3000000
+ 513945 words of memory out of 3000000
  19610 multiletter control sequences out of 15000+200000
  21477 words of font info for 44 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
@@ -848,7 +848,7 @@ ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
 texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2010/texmf-dist
 /fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/typ
 e1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (6 pages, 512554 bytes).
+Output written on paper.pdf (6 pages, 512522 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream
