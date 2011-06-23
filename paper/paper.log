@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.13)  23 JUN 2011 15:25
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.13)  23 JUN 2011 15:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -746,6 +746,9 @@ Missing character: There is no ô in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [1
 Non-PDF special ignored!{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/upd
 map/pdftex.map}
@@ -767,15 +770,14 @@ File: ui.png Graphic file (type png)
  <use ui.png>
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 128.
-
+ [2 <./flow.png>]
 Overfull \hbox (7.63466pt too wide) in paragraph at lines 165--172
 [] 
  []
 
-[2 <./flow.png>] <graph.png, id=21, 417.2388pt x 203.3196pt>
+<graph.png, id=21, 417.2388pt x 203.3196pt>
 File: graph.png Graphic file (type png)
- <use graph.png>
-[3 <./ui.png> <./graph.png>]
+ <use graph.png> [3 <./ui.png> <./graph.png>]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
@@ -818,8 +820,13 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
  [5] (./paper.bbl
-Underfull \hbox (badness 1168) in paragraph at lines 28--32
-[]\OT1/ptm/m/n/10 Georgia Koutrika, Ben-jamin Bercovitz, and Hec-tor
+Underfull \hbox (badness 7397) in paragraph at lines 4--6
+[]\OT1/ptm/m/n/10 Amazon gifts.  http://www.amazon.com/gp/gift-
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 49--52
+\OT1/ptm/m/n/10 oriented web-site nav-i-ga-tion for on-line shop-pers.
  []
 
 ) [6
@@ -830,13 +837,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16687 strings out of 493747
- 354314 string characters out of 3143546
- 513945 words of memory out of 3000000
- 19610 multiletter control sequences out of 15000+200000
+ 16695 strings out of 493747
+ 354375 string characters out of 3143546
+ 514093 words of memory out of 3000000
+ 19618 multiletter control sequences out of 15000+200000
  21477 words of font info for 44 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 51i,19n,93p,822b,1733s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 51i,19n,93p,831b,1733s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -848,7 +855,7 @@ ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
 texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2010/texmf-dist
 /fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/typ
 e1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (6 pages, 512522 bytes).
+Output written on paper.pdf (6 pages, 512917 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream

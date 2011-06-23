@@ -3,44 +3,53 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: paper.aux
 The style file: plain.bst
 Database file #1: AAI.bib
-You've used 8 entries,
+Warning--to sort, need author or key in JCpenny
+Warning--to sort, need author or key in Macy's
+Warning--to sort, need author or key in Sears
+Warning--to sort, need author or key in Yahoo
+Warning--to sort, need author or key in Hallmark
+Warning--to sort, need author or key in Gift
+Warning--to sort, need author or key in Find
+Warning--to sort, need author or key in Amazon
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            546 strings with 5472 characters,
-and the built_in function-call counts, 2594 in all, are:
-= -- 228
-> -- 148
+            575 strings with 5872 characters,
+and the built_in function-call counts, 3868 in all, are:
+= -- 348
+> -- 156
 < -- 0
-+ -- 59
++ -- 67
 - -- 50
-* -- 174
-:= -- 447
-add.period$ -- 24
-call.type$ -- 8
-change.case$ -- 48
+* -- 214
+:= -- 585
+add.period$ -- 40
+call.type$ -- 16
+change.case$ -- 72
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 104
-empty$ -- 217
+cite$ -- 24
+duplicate$ -- 160
+empty$ -- 401
 format.name$ -- 50
-if$ -- 535
+if$ -- 855
 int.to.chr$ -- 0
-int.to.str$ -- 8
+int.to.str$ -- 16
 missing$ -- 9
-newline$ -- 43
+newline$ -- 75
 num.names$ -- 16
-pop$ -- 69
+pop$ -- 133
 preamble$ -- 1
-purify$ -- 41
+purify$ -- 57
 quote$ -- 0
-skip$ -- 53
+skip$ -- 116
 stack$ -- 0
-substring$ -- 99
-swap$ -- 12
+substring$ -- 139
+swap$ -- 20
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 30
-warning$ -- 0
+type$ -- 62
+warning$ -- 8
 while$ -- 19
-width$ -- 9
-write$ -- 85
+width$ -- 18
+write$ -- 141
+(There were 8 warnings)
