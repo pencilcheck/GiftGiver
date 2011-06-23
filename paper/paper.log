@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.13)  23 JUN 2011 14:30
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.4.13)  23 JUN 2011 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -778,19 +778,7 @@ File: graph.png Graphic file (type png)
 [3 <./ui.png> <./graph.png>]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
@@ -804,56 +792,70 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 
-Underfull \hbox (badness 3281) in paragraph at lines 254--254
+Underfull \hbox (badness 10000) in paragraph at lines 251--251
+[]\OT1/ptm/b/n/10 Algorithm 4 \OT1/ptm/m/n/10 Fil-ter-With-Com-mon-Spreadin-gAc
+-ti-va-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+[] []\OT1/ptm/m/n/10 g.weakscore += pref.spreadActivation(g) *
+ []
+
+
+Underfull \hbox (badness 3281) in paragraph at lines 295--295
 []\OT1/ptm/m/n/10 Was the price check-ing fea-ture
  []
 
 
-Overfull \hbox (7.60611pt too wide) in paragraph at lines 266--267
+Overfull \hbox (7.60611pt too wide) in paragraph at lines 307--308
+[][] 
+ []
+
+
+Overfull \hbox (7.61678pt too wide) in paragraph at lines 367--368
 [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Overfull \hbox (7.61678pt too wide) in paragraph at lines 326--327
-[][] 
- []
-
-[4]
+ [4]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
- (./paper.bbl
+
+[5] (./paper.bbl
 Underfull \hbox (badness 1168) in paragraph at lines 28--32
 []\OT1/ptm/m/n/10 Georgia Koutrika, Ben-jamin Bercovitz, and Hec-tor
  []
 
-) [5] (./paper.aux) ) 
+) [6
+
+] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 16682 strings out of 493747
- 354282 string characters out of 3143546
- 511710 words of memory out of 3000000
- 19605 multiletter control sequences out of 15000+200000
+ 16684 strings out of 493747
+ 354295 string characters out of 3143546
+ 511726 words of memory out of 3000000
+ 19607 multiletter control sequences out of 15000+200000
  21477 words of font info for 44 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 51i,17n,93p,764b,1637s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8
-r.enc}</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10
-.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pf
-b></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></u
-sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/
-local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texl
-ive/2010/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2010/t
-exmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (5 pages, 509961 bytes).
+ 51i,17n,93p,822b,1637s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.en
+c}</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
+usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/l
+ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
+cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/loca
+l/texlive/2010/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/
+2010/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2010/texmf
+-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (6 pages, 511916 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 74 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 

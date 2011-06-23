@@ -220,11 +220,52 @@ is a library for reasoning by analogy and association over semantic networks, in
 Divisi uses a sparse higher-order SVD can help find related concepts, features, and relation types in any knowledge base that can be represented as a semantic network. By including common sense knowledge from ConceptNet, the results can include relationships not expressed in the original data but related by common sense.
 
 {\large Algorithms}
-There are many factor may affect weather a gift is suitable or not.   Sometimes, a few knowledge about will be written on the commonsense Knowledge base.  Such as “rose” has a strong relation to Valentine’s Day, “Cake” has a strong relation to birthday.   To find these kinds of relation, people usually come out SVD and wordNet.   If two key word are commonly showed up together, then they possibly have strong relation.  But we are using a better way, commonsense Knowledge base to find out their relations.   Compare to the pure text analyze, commonsense has the detail information about two words’ relation.   The assertion in commonsense Knowledge base are just like the thought in your mind.  
-For the reason below, we use commonsense Divisi to do analyze part.   The function we call is called fast speed spreading activation.  That means this function can calculate a category’s relation to a word.   And this function can also help you to find out what are the same concepts between the category’s items.
+A few knowledge about the relationship/relatedness between words are helpful for our gift recommendations to discover similar items and reject disappropriate items. Such as ``rose'' has a strong relation to Valentine’s Day, ``Cake'' has a strong relation to ``birthday''. To find these kinds of relation, people usually resort to WordNet or statistical models to search for similar appearance between words. If two key word are commonly showed up together, then they possibly have strong relation.  But we thought that words that appear together frequently are not always related, using Commonsense Knowledge base such as Divisi we can find out the real 'relatedness' between words. Compare to the text-based statistical models, commonsense has the detail information about two words’ relation by features.
 
-In step 3, we want to filtered the nonrelative items by commonsense.   Since occasion and relationship are the most 2 important Information.  We put them in to a category call scenario, to find out what kinds of gift has a strong relation with both of them.   The strong relation has a harder condition to satisfy.  This gift must be top 20 relative items by the category. 
+For the reason below, we use commonsense Divisi to do word analysis. We use fast spreading activation to calculate a category’s relation to a word by spitting out common features.   And this function can also help you to find out what are the same concepts between the category’s items.
+
+In step 3, we want to filter the nonrelated items by commonsense.   Since occasion and relationship are the most 2 important Information, we wrap them into a category we call a scenario, to find out what kinds of gift has a strong relation with both of them.   The strong relation has a harder condition to satisfy.  This gift must be top 20 relative items by the category. 
+
 Because step 3’s condition is too hard to complete, we extend step 4 to find out more relative items by commonsense.  This time, all the consideration form UI will be used to calculate spreading activation score.   We put each consideration in to one category, and then give each score a weight which from the equalize score of the pre-questionnaire.
+
+
+\begin{algorithm}
+\caption{FilterWithCommonSenseRelation(divisi, Occasion, Relationship, Gifts)}
+\label{fwcr}
+\begin{algorithmic}
+\STATE category = {Occasion,Relationship}
+\FOR{g in Gifts}
+    \IF{category.spreadActivation(g) is in top 20}
+        \STATE g.strongscore = category.spreadActivation(g)
+    \ELSIF{feature(g) $\geq$ feature(threshold)}
+        \STATE g.strongscore = 0
+    \ENDIF
+\ENDFOR
+\STATE sort(Gifts)
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\begin{algorithm}
+\caption{FilterWithCommonSpreadingActivation(divisi, weights, ReceiverPreference, Gifts)}
+\label{fwcsa}
+\begin{algorithmic}
+\FOR{g in Gifts}
+    \FOR{pref in ReceiverPreference}
+        \STATE g.weakscore += pref.spreadActivation(g) * weights(pref)
+    \ENDFOR
+    \STATE g.weakscore /= sum(weights)
+    \IF{g.weakscore $<$ threshold}
+        \STATE g.weakscore = 0
+    \ENDIF
+\ENDFOR
+\FOR{g in Gifts}
+\STATE g.finalscore = 10 * g.strongscore + g.weakscore
+\ENDFOR
+\STATE sort(Gifts)
+\end{algorithmic}
+\end{algorithm}
 
 
 \section{Evaluation}
