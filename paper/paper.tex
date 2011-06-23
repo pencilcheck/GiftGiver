@@ -28,15 +28,15 @@
 
 (Although picking gifts for your best friend or your beloved family member are so common in daily life, often people had been troubled by it. People had been overwhelmed by the number of choices given by the commercial retailer stores and e-commerce websites, however, most of the gift recommendation websites aren't good enough for the general public because most of the gifts were cliche or repetitive there are also no common sense in those recommendation websites.)
 
-Suppose you are planning to attend a birthday party of a far relative.  You may thinking about, "what am a going to send?"  That might bother you a hold afternoon since you thought of this question, because you have no idea what kind of gift this relative will like.  Pick a nice gift has been a hard and interest topic for a long time.   
+Suppose you are planning to attend a birthday party of a far relative.  You may thinking about, "what am I going to send?"  That might bother you a hole afternoon since you thought of this question, because you have no idea what kind of gift this relative will like.  Pick a nice gift has been a hard and interesting topic for a long time.   
 
-There are many factors to affect final answer. As a sender, budget is a big issue. Even sender spending a lot of money to prepare a gift, the receiver may think of too expensive and embarrassed to receive it.   Under tight budget, sender might consider the receiver's interest, religious, gender, age, and the relationship between the receiver and you. In addition, the date to gift is also a very important factor. Under normal circumstances, you do not send a coat in a hot summer.
+There are many factors to affect final decision. As a sender, budget is a big issue. Even the sender spends a lot of money preparing a gift, the receiver may think it too expensive and embarrassed to receive it.   Under tight budget, sender might consider the receiver's interest, religious, gender, age, and the relationship between the receiver and you. In addition, the date to gift is also a very important factor. Under normal circumstances, you do not send a coat in a hot summer.
 
-How to find a suitable gift? In the past, you go to a department store, and try to find the ideal gift, browsing through one store after the other, but nothing seems perfect. If you are not a decisive one, the process is time-consuming. At present, there are many online website to recommend gifts, e.g. Gift ideas, Hallmark Cards, Amazon gifts, Find gift, Yahoo! Gift Finder, JCpenny, Macy's, Sears[Reference]. However, according to our observations, most of them cannot supply satisfactory service. Usually, gifts websites prefer using bestseller to be their recommendations. The gift website usually comes out the similar recommendation list event we sent the different preferences, occasion and receiver’s age, and the list has too much detail.
+How to find a suitable gift? In the past, you go to a department store, and try to find the ideal gift, browsing through one store after the other, but nothing seems perfect. If you are not a decisive one, the process is time-consuming. At present, there are many online website to recommend gifts, e.g. Gift ideas, Hallmark Cards, Amazon gifts, Find gift, Yahoo! Gift Finder, JCpenny, Macy's, Sears[Reference]. However, according to our observations, most of them cannot supply satisfactory service. Usually, gifts websites prefer using best seller to be their recommendations. The gift website usually comes out the similar recommendation list event we sent the different preferences, occasion and receiver’s age, and the list has too many details.
 
-(Such as see’s toffee chocolate 16oz 20U.S.D.) (For non experts, they can hardly show their intimate part.)  Some people do ask others' opinions when they are picking a nice gift, but (as the sender consulting more and more people) gift giving should kept secret to the receiver, the gift might not be a surprise when everyone knows about it (because people like to gossip all day).
+(Such as see’s toffee chocolate 16oz 20U.S.D.) (For non experts, they can hardly show their intimate part.)  Some people ask others' opinions when they are picking a nice gift, but (as the sender consulting more and more people) gift giving should kept secret to the receiver, the gift might not be a surprise when everyone knows about it (because people like to gossip all day).
 
-Based on the above reasons, we explored a system we (named) called "GiftGiver" to recommend a list of gifts to help senders. In order to figure out what should be a nice gift,  we followed the idea of Scenario-Oriented Recommendation~\cite{Shen} [Edward].   We analyzed each gift in to 8 features.  (Besides, gifts item are not specific product.)   GiftGiver come out a concept of the gift idea, such like flower, tea mug etc.  In the way that sender can have their own gift choice.  If sender has no idea about a particular item, our system can also gives sender the detail of the gift (which parse) given from other e-commerce websites.
+Based on the above reasons, we explored a system we (named) called "GiftGiver" to recommend a list of gifts to help senders. In order to figure out what should be a nice gift,  we followed the idea of Scenario-Oriented Recommendation~\cite{Shen} [Edward].   We analyzed each gift into 8 features.  (Besides, gifts item are not specific product.)   GiftGiver come out a concept of the gift idea, such like flower, tea mug etc.  In the way that sender can have their own gift choice.  If sender has no idea about a particular item, our system can also gives sender the detail of the gift (which parse) given from other e-commerce websites.
 
 (More information actually) To give more variety of the recommendations for different occasions and different personalities, ( helped us to find a better gift recommendation.   To collect information from the senders), we built a website.   The UI’s content includes occasion, relationship, sender's favor, receiver's profile (which includes receiver's career, gender, age, interests), send date.)
 Sender can easily fill in their consideration step by step. 
@@ -309,16 +309,40 @@ According to the plot above, the distribution is pretty even through out the sea
 \end{tikzpicture}
 
 
+\section{RELATED WORK}
+Survey the most important recommendation system, we have a few conclusions.
+Traditionally, recommender systems are usually classified into the following three categories: 
+1. User-based Collaborative Filtering Systems[Reference 1篇]:
+The user will be recommended items similar to the ones the user preferred in the past.
+2. Item-based Collaborative Filtering Systems[Reference 3篇]:
+The user will be recommended items that people with similar tastes and preferences liked in the past.
+3. Hybrid Recommender Systems[Reference 2篇]:
+These methods combine the above two methods.
+They usually suggest books, music albums, from a set of input parameters, possibly including user profiles, purchase history, etc.
+
+In recent years, many researchers use novel technology to recommend, e.g. Edward use Commonsense to recommend clothing [ ].   Furthermore, some researchers use recommender system in interesting domains, such as Cosley’s Movie Recommendation[ ], and Koutrika’s Course Recommendation[ ].   Moreover, the display style of Top 10 is popular again recently []. We follow the latest trend, and use the novel technology in interesting domain.   In short, we are the first one that combine traditional recommendations and Commonsense, and apply them in Gift Recommendation.
+
+
 \section{Conclusion}
 
-adfl lkjsdl;fkjdls;fkjasdl;fkaj ds;flkadjsfa;dlskfja;sd lkfjad;lkfjad;lfkjsdf
-asd;lfkjads;flkaj sdf;lkasdjf;la kdsjf;adlkjfsd;alkjfdasf
-dfaskfjds;lkfjas;d lkfjds;lfkjadsf;adf
-asfsa
-dfdas
-fsad
-fsad
-fdsaf
+Send gift is a cross culture social activity.  There are too many combinations in different occasions, different time and different situations.   Which gift should we pick?   Sometimes even expert might go wrong.   
+As we mention in the beginning, our system is a good idea advisor rather than decision maker.   The assistant part let the system popular.   And the recommendation result does not have too many details. This kind of gift list help sender not only figure out what he/she really wants to send, but also let him/her think the part of surprise and intention.
+The volunteer of our usability test gave a nice feedback of our system.   Most of the users answered that they will use our system if they plan to send a gift in the future.   This success not only attributed to good recommendation results, but also the great design of our UI.
+
+\subsection{Future Work}
+
+Gift recommendation is a new topic of this academic area.   There are no such ancestors to reference.   As a beginner of this domain, we can only evaluate our system by usability test. 
+
+\subsubsection{Features}
+Speaking to our system, the feature vector is build by us.   We merge a few people’s idea, then argue with each other, and finally come out the first version of feature table.
+Although this table comes out a reasonable result, we still want to modify these data from the method like crowd voting, web mining and machine learning.   We believe that these methods will let feature table closer and closer to the truth value.
+
+\subsubsection{Gift list}
+On the other hand, our gift list has only 60 gifts.   We spent a long time browsing the internet, trying to summarize a list that can overlay the entire domain of the gift candidate and also not too much detail information.   We are going to build another page of GiftGiver which people can add new gift items on it.   If a particular gift owned more than 80% of “Is it suitable to be a gift item?” voting.   Then this gift might be added into our new gift list.
+
+\subsubsection{Other information}
+As you can see, the date part has not been used since our system build. In the future, we strongly hope that we can add locations or other useful information, and the commonsense part can be stronger when these information add in.
+
 
 \newpage
 \bibliographystyle{plain}
