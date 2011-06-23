@@ -83,6 +83,8 @@ Furthermore, we interviewed 5 differnet people with the primary concerns when pi
 Based on those two results from two different groups of people, we cut off some of the considerations from original design, such as Sender's religion, Sender's Gender, etc.
 
 
+\begin{figure}[h!t]
+\centering{
 \begin{tikzpicture}
     \begin{axis}[xlabel=Features, ylabel=Weight, legend style={at={(0.5, -0.2)}, anchor=north}]
     \addplot coordinates {(1, 4.583)};
@@ -101,6 +103,10 @@ Based on those two results from two different groups of people, we cut off some 
     \legend{Occasion,Relationship,Price,Date,Interests,Receiver's Career,Receiver's Gender,Receiver's Religion,Receiver's Age,Sender's Career,Sender's Gender,Sender's Religion, Sender's Age}
     \end{axis}
 \end{tikzpicture}
+}
+\caption{Feature weights}
+\label{feature}
+\end{figure}
 
 
 Compare to major e-commerce websites that sells real products, our website doesn't have the real database for all different kinds of gifts, but we had a better flow and more variety and flexibility of options for users to pick. There is also another extinction between our UI design and those of major corporations. For example, Gifts.com has more than 10 ages degree, such as $0~6$, $7~12$, $13~19$, $20~30$, $31~40$ etc, we use fuzzy set to define our age instead of clear separation by years. Because nouns like child, adult etc. will help the system in the commonsense part.  On the other hand, some people still looks like a child even that person has already more than 30s.  The fuzzy part will come out positive result.
@@ -300,14 +306,22 @@ Will you consider using our system for gift recommendation in the future? & 5 & 
 \label{table:usetest}
 \end{table*}
 
+\begin{figure}[h!t]
+\centering{
 \begin{tikzpicture}
     \begin{axis}[xlabel=Order of results, ylabel=Number of hits]
     \addplot[color=red,mark=x] coordinates {(1,3) (2,3) (3,2) (4,2) (5,1) (6,3) (7,1) (8,1) (9,2) (10,0) (11,5) (12,2) (13,0) (14,0) (15,2) (16,2) (17,1) (18,3) (19,2) (20,2)};
     \end{axis}
 \end{tikzpicture}
+}
+\caption{Distribution of hits by order of results}
+\label{hit}
+\end{figure}
 
 According to the plot above, the distribution is pretty even through out the search results but some bumpy hills along. We define hit rate as the number of times the tester's desired gift is ``hit'' on the result list. The higher the number the better our system performs. To illustrate the result of our survey in terms of hit rate, the scatter plot below provides the representation for that.
 
+\begin{figure}[h!t]
+\centering{
 \begin{tikzpicture}
     \begin{axis}[
     xlabel=Order of choice,
@@ -364,7 +378,12 @@ According to the plot above, the distribution is pretty even through out the sea
     (3, 6) [e]
     };
     \end{axis}
+    \label{use}
 \end{tikzpicture}
+}
+\caption{Usability test}
+\label{use}
+\end{figure}
 
 
 \section{Conclusion}
@@ -382,9 +401,9 @@ Speaking to our system, the feature vector is build by us.   We merge a few peop
 Although this table comes out a reasonable result, we still want to modify these data from the method like crowd voting, web mining and machine learning.   We believe that these methods will let feature table closer and closer to the truth value.
 
 \subsubsection{Gift list}
-On the other hand, our gift list has only 60 gifts.   We spent a long time browsing the internet, trying to summarize a list that can overlay the entire domain of the gift candidate and also not too much detail information.   We are going to build another page of GiftGiver which people can add new gift items on it.   If a particular gift owned more than 80% of “Is it suitable to be a gift item?” voting.   Then this gift might be added into our new gift list.
+On the other hand, our gift list has only 60 gifts.   We spent a long time browsing the internet, trying to summarize a list that can overlay the entire domain of the gift candidate and also not too much detail information.   We are going to build another page of GiftGiver which people can add new gift items on it.   If a particular gift owned more than 80\% of “Is it suitable to be a gift item?” voting.   Then this gift might be added into our new gift list.
 
-\subsubsection{Other information}
+\subsubsection{Date integration}
 As you can see, the date part has not been used since our system build. In the future, we strongly hope that we can add locations or other useful information, and the commonsense part can be stronger when these information add in.
 
 
