@@ -11,6 +11,8 @@
 \usepackage{comment}
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{listings}
+\lstset{language=Python}
 \DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
 
 %\doublespacing
@@ -163,15 +165,16 @@ Birthday (Occasion) & (0.2, 1.0, 0.6, 0.2, 0.0, 1.0, 0.2, 0.2) \\
 \end{tabular}
 
 
-
-
 Occasion is treated differently than normal object. We sort our gift candidates from our sample pool of gifts of 20 by the mean square distance with target occasion as the desired mean that is specified in the UI by the users. Below the pseudocode described our first algorithm to sort gifts.
 
 \begin{algorithm}
-\caption{Mean Squared Distance sorting}
-\label{mse}
+\caption{MeanSquaredDistanceSort(Occasion, Gifts)}
+\label{msd}
 \begin{algorithmic}
-\STATE $HAHA \rightarrow h$
+\STATE $dist = 0$
+\FOR{g in Gifts}
+\STATE $dist = \frac{1}{8} \sum_{i=1}^{8} \sqrt{(Occasion_i - gift_i)^2}$
+\ENDFOR
 \end{algorithmic}
 \end{algorithm}
 
@@ -179,14 +182,20 @@ Occasion is treated differently than normal object. We sort our gift candidates 
 However to accommodate selective considerations such as Food, Travel, Sport, etc for users who have a preference to influence the concept relatedness of the gifts candidates, we took a threshold defined for each consideration to further sort and place candidates into two buckets, a superior and inferoir for gifts that satisfied all the constraints and those not.
 
 \begin{algorithm}
-\caption{Thresholding consideration sorting}
-\label{tcs}
+\caption{FilterWithPreferenceThreshold(Sender, Gifts, Features)}
+\label{fpt}
 \begin{algorithmic}
-\STATE $HAHA \rightarrow h$
+\FOR{g in Gifts}
+    \FOR{feature in Features that Sender chooses}
+        \IF{feature(g) $<$ feature(threshold)}
+        \STATE g append to InferiorGifts
+        \ELSIF{feature(g) $\geq$ feature(threshold)}
+        \STATE g append to BetterGifts
+        \ENDIF
+    \ENDFOR
+\ENDFOR
 \end{algorithmic}
 \end{algorithm}
-
-(talk more about why and how this works etc)
 
 
 \subsubsection{Commonsense knowledge base}
@@ -209,6 +218,13 @@ ConceptNet is an open source project, with a Python implementation and a REST AP
 {\large Divisi}
 is a library for reasoning by analogy and association over semantic networks, including common sense knowledge.
 Divisi uses a sparse higher-order SVD can help find related concepts, features, and relation types in any knowledge base that can be represented as a semantic network. By including common sense knowledge from ConceptNet, the results can include relationships not expressed in the original data but related by common sense.
+
+{\large Algorithms}
+There are many factor may affect weather a gift is suitable or not.   Sometimes, a few knowledge about will be written on the commonsense Knowledge base.  Such as “rose” has a strong relation to Valentine’s Day, “Cake” has a strong relation to birthday.   To find these kinds of relation, people usually come out SVD and wordNet.   If two key word are commonly showed up together, then they possibly have strong relation.  But we are using a better way, commonsense Knowledge base to find out their relations.   Compare to the pure text analyze, commonsense has the detail information about two words’ relation.   The assertion in commonsense Knowledge base are just like the thought in your mind.  
+For the reason below, we use commonsense Divisi to do analyze part.   The function we call is called fast speed spreading activation.  That means this function can calculate a category’s relation to a word.   And this function can also help you to find out what are the same concepts between the category’s items.
+
+In step 3, we want to filtered the nonrelative items by commonsense.   Since occasion and relationship are the most 2 important Information.  We put them in to a category call scenario, to find out what kinds of gift has a strong relation with both of them.   The strong relation has a harder condition to satisfy.  This gift must be top 20 relative items by the category. 
+Because step 3’s condition is too hard to complete, we extend step 4 to find out more relative items by commonsense.  This time, all the consideration form UI will be used to calculate spreading activation score.   We put each consideration in to one category, and then give each score a weight which from the equalize score of the pre-questionnaire.
 
 
 \section{Evaluation}
