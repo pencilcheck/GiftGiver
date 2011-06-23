@@ -148,7 +148,7 @@ Fun & Is it let you happy in a pure way? \\
 
 
 Each object such as gift is defined by the feature vector. Each value is normalized from [0,1].
-Occasion is also defined by the feature vector, however it is a special object, its existance
+Occasion is also defined by the feature vector, but its existance
 is essensial to our algorithms. Just as the same as the feature vectors defined in Shen's work~\cite{Shen}.
 
 \noindent For instance: 
@@ -165,7 +165,7 @@ Birthday (Occasion) & (0.2, 1.0, 0.6, 0.2, 0.0, 1.0, 0.2, 0.2) \\
 
 
 
-Occasion is treated differently than normal object. We sort our gift candidates from our sample pool of gifts of 20 by the mean square distance with target occasion that is specified in the UI by the users. Below the pseudocode described our first algorithm to sort gifts.
+Occasion is treated differently than normal object. We sort our gift candidates from our sample pool of gifts of 20 by the mean square distance with target occasion as the desired mean that is specified in the UI by the users. Below the pseudocode described our first algorithm to sort gifts.
 
 \begin{algorithm}
 \caption{Mean Squared Distance sorting}
